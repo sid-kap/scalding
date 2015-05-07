@@ -27,7 +27,7 @@ object ScaldingBuild extends Build {
   val chillVersion = "0.5.2"
   val dfsDatastoresVersion = "1.3.4"
   val elephantbirdVersion = "4.6"
-  val hadoopLzoVersion = "0.4.16"
+  val hadoopLzoVersion = "0.4.19"
   val hadoopVersion = "1.2.1"
   val hbaseVersion = "0.94.10"
   val hravenVersion = "0.9.13"
@@ -47,9 +47,9 @@ object ScaldingBuild extends Build {
   val sharedSettings = Project.defaultSettings ++ assemblySettings ++ scalariformSettings ++ Seq(
     organization := "com.twitter",
 
-    scalaVersion := "2.10.4",
+    scalaVersion := "2.10.5",
 
-    crossScalaVersions := Seq("2.10.4", "2.11.5"),
+    crossScalaVersions := Seq("2.10.5", "2.11.5"),
 
     ScalariformKeys.preferences := formattingPreferences,
 
@@ -80,6 +80,12 @@ object ScaldingBuild extends Build {
     },
 
     fork in Test := true,
+
+    updateOptions := updateOptions.value.withConsolidatedResolution(true),
+
+    updateOptions := updateOptions.value.withCachedResolution(true),
+
+    aggregate in update := false,
 
     javaOptions in Test ++= Seq("-Xmx2048m", "-XX:ReservedCodeCacheSize=384m", "-XX:MaxPermSize=384m"),
 
