@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="ivy-report.xsl"?>
+<ivy-report version="1.0">
+	<info
+		organisation="default"
+		module="root-_src-build"
+		revision="0.1-SNAPSHOT"
+		extra-sbtVersion="0.13"
+		extra-scalaVersion="2.10"
+		conf="test"
+		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool"
+		date="20150713102544"/>
+	<dependencies>
+		<module organisation="org.tpolecat" name="tut-plugin">
+			<revision name="0.4.0" status="release" pubdate="20150624220906" resolver="sbt-chain" artresolver="sbt-chain" extra-sbtVersion="0.13" extra-scalaVersion="2.10" downloaded="false" searched="false" default="false" conf="default(compile), compile" position="0">
+				<license name="MIT" url="http://opensource.org/licenses/MIT"/>
+				<metadata-artifact status="no" details="" size="1478" time="0" location="/Users/skapur/.ivy2/cache/scala_2.10/sbt_0.13/org.tpolecat/tut-plugin/ivy-0.4.0.xml" searched="false" origin-is-local="false" origin-location="http://dl.bintray.com/content/tpolecat/sbt-plugin-releases/org.tpolecat/tut-plugin/scala_2.10/sbt_0.13/0.4.0/ivys/ivy.xml"/>
+				<caller organisation="default" name="root-_src-build" conf="test, compile, runtime" rev="0.4.0" rev-constraint-default="0.4.0" rev-constraint-dynamic="0.4.0" callerrev="0.1-SNAPSHOT" extra-sbtVersion="0.13" extra-scalaVersion="2.10"/>
+				<artifacts>
+					<artifact name="tut-plugin" type="jar" ext="jar" status="no" details="" size="41841" time="0" location="/Users/skapur/.ivy2/cache/scala_2.10/sbt_0.13/org.tpolecat/tut-plugin/jars/tut-plugin-0.4.0.jar">
+						<origin-location is-local="false" location="http://dl.bintray.com/content/tpolecat/sbt-plugin-releases/org.tpolecat/tut-plugin/scala_2.10/sbt_0.13/0.4.0/jars/tut-plugin.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+	</dependencies>
+</ivy-report>

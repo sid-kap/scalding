@@ -1,0 +1,310 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+  <meta http-equiv="Content-Style-Type" content="text/css"></meta>
+  <meta name="generator" content="pandoc"></meta>
+  <title>Alice in Wonderland Tutorial</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code &gt; span.kw { color: #007020; font-weight: bold; }
+code &gt; span.dt { color: #902000; }
+code &gt; span.dv { color: #40a070; }
+code &gt; span.bn { color: #40a070; }
+code &gt; span.fl { color: #40a070; }
+code &gt; span.ch { color: #4070a0; }
+code &gt; span.st { color: #4070a0; }
+code &gt; span.co { color: #60a0b0; font-style: italic; }
+code &gt; span.ot { color: #007020; }
+code &gt; span.al { color: #ff0000; font-weight: bold; }
+code &gt; span.fu { color: #06287e; }
+code &gt; span.er { color: #ff0000; font-weight: bold; }
+  </style>
+  <link rel="stylesheet" href="http://localhost:8000/_src/css/bootstrap.min.css" type="text/css"></link>
+  <link rel="stylesheet" href="http://localhost:8000/_src/css/custom.css" type="text/css"></link>
+</head>
+<body>
+
+<div class="row">
+    <div class="container">
+        <div class="col-xs-4">
+            <img id="logo" src="http://localhost:8000//_src/scalding.png">
+        </div>
+    </div>
+</div>
+
+<div class="container">
+<div class="row">
+
+<div class="col-xs-3" role="navigation" id="nav-left">
+<ul class="nav nav-pills nav-stacked">
+    <li role="presentation"><a href="http://localhost:8000/site/.Foo.md.html">.Foo</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/11.html">11</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/_Sidebar.html">_Sidebar</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/API-Reference.html">API-Reference</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/Calling-Scalding-from-inside-your-application.html">Calling-Scalding-from-inside-your-application</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/Common-Exceptions-and-possible-reasons.html">Common-Exceptions-and-possible-reasons</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/Comparison-to-Scrunch-and-Scoobi.html">Comparison-to-Scrunch-and-Scoobi</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/Field-rules.html">Field-rules</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/Fields-API:-reduce-functions-of-GroupBuilder.html">Fields-API:-reduce-functions-of-GroupBuilder</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/Fields-based-API-Reference.html">Fields-based-API-Reference</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/Frequently-asked-questions.html">Frequently-asked-questions</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/hello.html">hello</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/Home.html">Home</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/Introduction-to-Matrix-Library.html">Introduction-to-Matrix-Library</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/Matrix-API-Reference.html">Matrix-API-Reference</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/Pig-to-Scalding.html">Pig-to-Scalding</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/Powered-By.html">Powered-By</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/REPL-Reference.html">REPL-Reference</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/Rosetta-Code.html">Rosetta-Code</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/Run-in-Intellij-IDEA.html">Run-in-Intellij-IDEA</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/Scala-and-sbt-for-Homebrew-users.html">Scala-and-sbt-for-Homebrew-users</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/Scala-and-sbt-for-MacPorts-users.html">Scala-and-sbt-for-MacPorts-users</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/Scald.rb.html">Scald</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/Scalding-Commons.html">Scalding-Commons</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/Scalding-HBase.html">Scalding-HBase</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/Scalding-on-amazon-elastic-mapreduce.html">Scalding-on-amazon-elastic-mapreduce</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/Scalding-REPL.html">Scalding-REPL</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/Scalding-Sources.html">Scalding-Sources</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/Scalding-with-CDH3U2-in-a-Maven-project.html">Scalding-with-CDH3U2-in-a-Maven-project</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/Tutorials/Aggregation-using-Algebird-Aggregators.html">Aggregation-using-Algebird-Aggregators</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/Tutorials/Alice-in-Wonderland.html">Alice-in-Wonderland</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/Tutorials/Building-bigger-platforms-with-scalding.html">Building-bigger-platforms-with-scalding</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/Tutorials/Getting-Started.html">Getting-Started</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/Tutorials/Intro-to-Scalding-Jobs.html">Intro-to-Scalding-Jobs</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/Tutorials/SQL-to-Scalding.html">SQL-to-Scalding</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/Type-safe-api-reference.html">Type-safe-api-reference</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/Upgrading-to-0.9.0.html">Upgrading-to-0</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/Using-scalding-with-other-versions-of-scala.html">Using-scalding-with-other-versions-of-scala</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/Using-the-distributed-cache.html">Using-the-distributed-cache</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/Why-pack-unpack-and-not--toList[].html">Why-pack-unpack-and-not--toList[]</a>
+    </li>
+    <li role="presentation" class="active"><a href="#">Alice in Wonderland Tutorial</a></li>
+</ul>
+</div>
+
+<div class="col-xs-9 text-body">
+
+<div id="header">
+<h1 class="title">Alice in Wonderland Tutorial</h1>
+</div>
+<p>First, let's import some stuff.</p>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">import</span> scala.<span class="fu">io</span>.<span class="fu">Source</span>
+<span class="kw">import</span> com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">_</span>
+<span class="kw">import</span> com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">ReplImplicits</span>.<span class="fu">_</span>
+<span class="kw">import</span> com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">ReplImplicitContext</span>.<span class="fu">_</span></code></pre>
+<pre class="sourceCode scala"><code class="sourceCode scala">scala&gt; <span class="co">//val alice = Source.fromURL(&quot;http://www.gutenberg.org/files/11/11.txt&quot;).getLines</span>
+     | <span class="kw">val</span> alice = Source.<span class="fu">fromFile</span>(<span class="st">&quot;/home/sidharth/workspace/site/_src/src/11.txt&quot;</span>).<span class="fu">getLines</span>
+alice: Iterator[String] = non-empty iterator</code></pre>
+<p>Add the line numbers, which we might want later</p>
+<pre class="sourceCode scala"><code class="sourceCode scala">scala&gt; <span class="kw">val</span> aliceLineNum = alice.<span class="fu">zipWithIndex</span>.<span class="fu">toList</span>
+aliceLineNum: List[(String, Int)] = List((Project Gutenberg's Alice's Adventures in Wonderland, by Lewis Carroll,<span class="dv">0</span>), (<span class="st">&quot;&quot;</span>,<span class="dv">1</span>), (This eBook is <span class="kw">for</span> the use of anyone anywhere at no cost and <span class="kw">with</span>,<span class="dv">2</span>), (almost no restrictions whatsoever.  You may copy it, give it away or,<span class="dv">3</span>), (re-use it under the terms of the Project Gutenberg License included,<span class="dv">4</span>), (<span class="kw">with</span> <span class="kw">this</span> eBook or online at www.<span class="fu">gutenberg</span>.<span class="fu">org</span>,<span class="dv">5</span>), (<span class="st">&quot;&quot;</span>,<span class="dv">6</span>), (<span class="st">&quot;&quot;</span>,<span class="dv">7</span>), (Title: Alice's Adventures in Wonderland,<span class="dv">8</span>), (<span class="st">&quot;&quot;</span>,<span class="dv">9</span>), (Author: Lewis Carroll,<span class="dv">10</span>), (<span class="st">&quot;&quot;</span>,<span class="dv">11</span>), (Posting Date: June <span class="dv">25</span>, <span class="dv">2008</span> [EBook #<span class="dv">11</span>],<span class="dv">12</span>), (Release Date: March, <span class="dv">1994</span>,<span class="dv">13</span>), ([Last updated: December <span class="dv">20</span>, <span class="dv">2011</span>],<span class="dv">14</span>), (<span class="st">&quot;&quot;</span>,<span class="dv">15</span>), (Language: English,<span class="dv">16</span>), (<span class="st">&quot;&quot;</span>,<span class="dv">17</span>), (Character set encoding: ASCII,<span class="dv">18</span>), (<span class="st">&quot;&quot;</span>,<span class="dv">19</span>), (*** START OF THIS PROJECT GUTENBERG EBOOK ALICE'S ADVENTURES IN WONDERLAND ***,<span class="dv">20</span>), (<span class="st">&quot;&quot;</span>,<span class="dv">21</span>)...</code></pre>
+<p>Now for scalding, TypedPipe is the main scalding object representing your data.</p>
+<pre class="sourceCode scala"><code class="sourceCode scala">scala&gt; <span class="kw">val</span> alicePipe = TypedPipe.<span class="fu">from</span>(aliceLineNum)
+alicePipe: com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipe</span>[(String, Int)] = <span class="fu">IterablePipe</span>(List((Project Gutenberg's Alice's Adventures in Wonderland, by Lewis Carroll,<span class="dv">0</span>), (,<span class="dv">1</span>), (This eBook is <span class="kw">for</span> the use of anyone anywhere at no cost and <span class="kw">with</span>,<span class="dv">2</span>), (almost no restrictions whatsoever.  You may copy it, give it away or,<span class="dv">3</span>), (re-use it under the terms of the Project Gutenberg License included,<span class="dv">4</span>), (<span class="kw">with</span> <span class="kw">this</span> eBook or online at www.<span class="fu">gutenberg</span>.<span class="fu">org</span>,<span class="dv">5</span>), (,<span class="dv">6</span>), (,<span class="dv">7</span>), (Title: Alice's Adventures in Wonderland,<span class="dv">8</span>), (,<span class="dv">9</span>), (Author: Lewis Carroll,<span class="dv">10</span>), (,<span class="dv">11</span>), (Posting Date: June <span class="dv">25</span>, <span class="dv">2008</span> [EBook #<span class="dv">11</span>],<span class="dv">12</span>), (Release Date: March, <span class="dv">1994</span>,<span class="dv">13</span>), ([Last updated: December <span class="dv">20</span>, <span class="dv">2011</span>],<span class="dv">14</span>), (,<span class="dv">15</span>), (Language: English,<span class="dv">16</span>), (,<span class="dv">17</span>), (Character set encoding: ASCII,<span class="dv">18</span>), (,<span class="dv">19</span>), (*** START OF THIS PROJECT GUTENBERG EBOOK ALICE'S ADVENTURES IN W...
+
+scala&gt; <span class="kw">val</span> aliceWordList = alicePipe.<span class="fu">map</span> { line =&gt; line.<span class="fu">_1</span>.<span class="fu">split</span>(<span class="st">&quot;</span><span class="ch">\\</span><span class="st">s+&quot;</span>).<span class="fu">toList</span> }
+aliceWordList: com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipe</span>[List[String]] = com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipeFactory</span>@5e902bc6</code></pre>
+<p>Three things: map, function, tuples but that's ugly, so we can use tuple matching the be clearer:</p>
+<pre class="sourceCode scala"><code class="sourceCode scala">scala&gt; <span class="kw">val</span> aliceWordList = alicePipe.<span class="fu">map</span> { <span class="kw">case</span> (text, lineno) =&gt;
+     |   text.<span class="fu">split</span>(<span class="st">&quot;</span><span class="ch">\\</span><span class="st">s+&quot;</span>).<span class="fu">toList</span>
+     | }
+aliceWordList: com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipe</span>[List[String]] = com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipeFactory</span>@525605ca</code></pre>
+<p>But we want words, not lists of words. We need to flatten!</p>
+<pre class="sourceCode scala"><code class="sourceCode scala">scala&gt; <span class="kw">val</span> aliceWords = aliceWordList.<span class="fu">flatten</span>
+aliceWords: com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipe</span>[String] = com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipeFactory</span>@6a71a0e2</code></pre>
+<p>Scala has a common function for this map + flatten == flatMap</p>
+<pre class="sourceCode scala"><code class="sourceCode scala">scala&gt; <span class="kw">val</span> aliceWords = alicePipe.<span class="fu">flatMap</span> { <span class="kw">case</span> (text, _) =&gt; text.<span class="fu">split</span>(<span class="st">&quot;</span><span class="ch">\\</span><span class="st">s+&quot;</span>).<span class="fu">toList</span> }
+aliceWords: com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipe</span>[String] = com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipeFactory</span>@2e14367d</code></pre>
+<p>Now lets add a count for each word:</p>
+<pre class="sourceCode scala"><code class="sourceCode scala">scala&gt; <span class="kw">val</span> aliceWithCount = aliceWords.<span class="fu">map</span> { word =&gt; (word, 1L) }
+aliceWithCount: com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipe</span>[(String, Long)] = com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipeFactory</span>@eab7309</code></pre>
+<p>let's sum them for each word:</p>
+<pre class="sourceCode scala"><code class="sourceCode scala">scala&gt; <span class="kw">val</span> wordCount = aliceWithCount.<span class="fu">group</span>.<span class="fu">sum</span>
+wordCount: com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">UnsortedGrouped</span>[String,Long] = <span class="fu">IteratorMappedReduce</span>(scala.<span class="fu">math</span>.<span class="fu">Ordering</span>$String$@4bafeee1,com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipeFactory</span>@73f604fd,&lt;function2&gt;,None)</code></pre>
+<p>or: .group.sum == .sumByKey</p>
+<p>let's print them to the screen (REPL only)</p>
+<pre class="sourceCode scala"><code class="sourceCode scala">scala&gt; wordCount.<span class="fu">toIterator</span>.<span class="fu">take</span>(<span class="dv">100</span>)
+res1: Iterator[(String, Long)] = non-empty iterator</code></pre>
+<p>Let's print just the ones with more that 100 appearances:</p>
+<pre class="sourceCode scala"><code class="sourceCode scala">scala&gt; wordCount.<span class="fu">filter</span> { <span class="kw">case</span> (word, count) =&gt; count &gt; <span class="dv">100</span> }.<span class="fu">dump</span>
+(,<span class="dv">1172</span>)
+('I,<span class="dv">121</span>)
+(Alice,<span class="dv">221</span>)
+(I,<span class="dv">260</span>)
+(a,<span class="dv">662</span>)
+(all,<span class="dv">168</span>)
+(and,<span class="dv">780</span>)
+(as,<span class="dv">246</span>)
+(at,<span class="dv">211</span>)
+(be,<span class="dv">154</span>)
+(but,<span class="dv">105</span>)
+(<span class="kw">for</span>,<span class="dv">146</span>)
+(had,<span class="dv">175</span>)
+(her,<span class="dv">203</span>)
+(in,<span class="dv">401</span>)
+(it,<span class="dv">356</span>)
+(little,<span class="dv">117</span>)
+(not,<span class="dv">122</span>)
+(of,<span class="dv">596</span>)
+(on,<span class="dv">148</span>)
+(or,<span class="dv">137</span>)
+(said,<span class="dv">416</span>)
+(she,<span class="dv">484</span>)
+(so,<span class="dv">104</span>)
+(that,<span class="dv">226</span>)
+(the,<span class="dv">1664</span>)
+(they,<span class="dv">109</span>)
+(<span class="kw">this</span>,<span class="dv">122</span>)
+(to,<span class="dv">773</span>)
+(very,<span class="dv">127</span>)
+(was,<span class="dv">329</span>)
+(<span class="kw">with</span>,<span class="dv">214</span>)
+(you,<span class="dv">301</span>)</code></pre>
+<p>but which is the biggest word? use, :paste to put multi-line expressions</p>
+<pre class="sourceCode scala"><code class="sourceCode scala">scala&gt; <span class="kw">val</span> top10 = (wordCount
+     |       .<span class="fu">groupAll</span>
+     |       .<span class="fu">sortBy</span> { <span class="kw">case</span> (word, count) =&gt; -count }
+     |       .<span class="fu">take</span>(<span class="dv">10</span>))
+top10: com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">SortedGrouped</span>[Unit,(String, Long)] = <span class="fu">ValueSortedReduce</span>(scala.<span class="fu">math</span>.<span class="fu">Ordering</span>$Unit$@661ba2f9,com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipeFactory</span>@496bc5a2,scala.<span class="fu">math</span>.<span class="fu">Ordering</span>$$anon$<span class="dv">9</span>@427c3456,&lt;function2&gt;,Some(<span class="dv">1</span>))
+
+scala&gt; top10.<span class="fu">dump</span>
+((),(the,<span class="dv">1664</span>))
+((),(,<span class="dv">1172</span>))
+((),(and,<span class="dv">780</span>))
+((),(to,<span class="dv">773</span>))
+((),(a,<span class="dv">662</span>))
+((),(of,<span class="dv">596</span>))
+((),(she,<span class="dv">484</span>))
+((),(said,<span class="dv">416</span>))
+((),(in,<span class="dv">401</span>))
+((),(it,<span class="dv">356</span>))</code></pre>
+<p>Where is Alice? What is with the ()? use, :paste to put multi-line expressions</p>
+<pre class="sourceCode scala"><code class="sourceCode scala">scala&gt; <span class="kw">val</span> top20 = (wordCount
+     |       .<span class="fu">groupAll</span>
+     |       .<span class="fu">sortBy</span> { <span class="kw">case</span> (word, count) =&gt; -count }
+     |       .<span class="fu">take</span>(<span class="dv">20</span>)
+     |       .<span class="fu">values</span>) <span class="co">// ignore the ()-all key</span>
+top20: com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipe</span>[(String, Long)] = com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipeFactory</span>@1be18349
+
+scala&gt; top20.<span class="fu">dump</span>
+(the,<span class="dv">1664</span>)
+(,<span class="dv">1172</span>)
+(and,<span class="dv">780</span>)
+(to,<span class="dv">773</span>)
+(a,<span class="dv">662</span>)
+(of,<span class="dv">596</span>)
+(she,<span class="dv">484</span>)
+(said,<span class="dv">416</span>)
+(in,<span class="dv">401</span>)
+(it,<span class="dv">356</span>)
+(was,<span class="dv">329</span>)
+(you,<span class="dv">301</span>)
+(I,<span class="dv">260</span>)
+(as,<span class="dv">246</span>)
+(that,<span class="dv">226</span>)
+(Alice,<span class="dv">221</span>)
+(<span class="kw">with</span>,<span class="dv">214</span>)
+(at,<span class="dv">211</span>)
+(her,<span class="dv">203</span>)
+(had,<span class="dv">175</span>)</code></pre>
+<p>there she is!</p>
+<p>what is the last line, on which each word appears?</p>
+<p>How to solve this? (flat)map text to (word, lineno) pairs for each word, take the maximum line num then join the line number to the original input</p>
+<pre class="sourceCode scala"><code class="sourceCode scala">scala&gt; <span class="kw">val</span> wordLine = alicePipe.<span class="fu">flatMap</span> { <span class="kw">case</span> (text, line) =&gt;
+     |    text.<span class="fu">split</span>(<span class="st">&quot;</span><span class="ch">\\</span><span class="st">s+&quot;</span>).<span class="fu">toList</span>.<span class="fu">map</span> { word =&gt; (word, line) }
+     |  }
+wordLine: com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipe</span>[(String, Int)] = com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipeFactory</span>@414f946</code></pre>
+<p>Take the max see all the functions on grouped things here: http://twitter.github.io/scalding/#com.twitter.scalding.typed.Grouped</p>
+<pre class="sourceCode scala"><code class="sourceCode scala">scala&gt; <span class="kw">val</span> lastLine = wordLine.<span class="fu">group</span>.<span class="fu">max</span>
+lastLine: com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">UnsortedGrouped</span>[String,Int] = <span class="fu">IteratorMappedReduce</span>(scala.<span class="fu">math</span>.<span class="fu">Ordering</span>$String$@4bafeee1,com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipeFactory</span>@<span class="dv">12322376</span>,&lt;function2&gt;,None)</code></pre>
+<p>now lookup the initial line: same as .swap, by the way</p>
+<pre class="sourceCode scala"><code class="sourceCode scala">scala&gt; <span class="fu">println</span>(lastLine.<span class="fu">map</span> { <span class="kw">case</span> (word, lastLine) =&gt; (lastLine, word) }
+     |   .<span class="fu">group</span>
+     |   .<span class="fu">join</span>(alicePipe.<span class="fu">swap</span>.<span class="fu">group</span>)
+     |   .<span class="fu">toIterator</span>
+     |   .<span class="fu">take</span>(<span class="dv">30</span>).<span class="fu">mkString</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>))
+(<span class="dv">8</span>,(Title:,Title: Alice's Adventures in Wonderland))
+(<span class="dv">10</span>,(Author:,Author: Lewis Carroll))
+(<span class="dv">12</span>,(#<span class="dv">11</span>],Posting Date: June <span class="dv">25</span>, <span class="dv">2008</span> [EBook #<span class="dv">11</span>]))
+(<span class="dv">12</span>,(<span class="dv">2008</span>,Posting Date: June <span class="dv">25</span>, <span class="dv">2008</span> [EBook #<span class="dv">11</span>]))
+(<span class="dv">12</span>,(<span class="dv">25</span>,,Posting Date: June <span class="dv">25</span>, <span class="dv">2008</span> [EBook #<span class="dv">11</span>]))
+(<span class="dv">12</span>,(June,Posting Date: June <span class="dv">25</span>, <span class="dv">2008</span> [EBook #<span class="dv">11</span>]))
+(<span class="dv">12</span>,(Posting,Posting Date: June <span class="dv">25</span>, <span class="dv">2008</span> [EBook #<span class="dv">11</span>]))
+(<span class="dv">12</span>,([EBook,Posting Date: June <span class="dv">25</span>, <span class="dv">2008</span> [EBook #<span class="dv">11</span>]))
+(<span class="dv">13</span>,(<span class="dv">1994</span>,Release Date: March, <span class="dv">1994</span>))
+(<span class="dv">13</span>,(Date:,Release Date: March, <span class="dv">1994</span>))
+(<span class="dv">13</span>,(Release,Release Date: March, <span class="dv">1994</span>))
+(<span class="dv">14</span>,(<span class="dv">20</span>,,[Last updated: December <span class="dv">20</span>, <span class="dv">2011</span>]))
+(<span class="dv">14</span>,(<span class="dv">2011</span>],[Last updated: December <span class="dv">20</span>, <span class="dv">2011</span>]))
+(<span class="dv">14</span>,(December,[Last updated: December <span class="dv">20</span>, <span class="dv">2011</span>]))
+(<span class="dv">14</span>,([Last,[Last updated: December <span class="dv">20</span>, <span class="dv">2011</span>]))
+(<span class="dv">14</span>,(updated:,[Last updated: December <span class="dv">20</span>, <span class="dv">2011</span>]))
+(<span class="dv">16</span>,(Language:,Language: English))
+(<span class="dv">18</span>,(ASCII,Character set encoding: ASCII))
+(<span class="dv">18</span>,(Character,Character set encoding: ASCII))
+(<span class="dv">18</span>,(encoding:,Character set encoding: ASCII))
+(<span class="dv">20</span>,(START,*** START OF THIS PROJECT GUTENBERG EBOOK ALICE'S ADVENTURES IN WONDERLAND ***))
+(<span class="dv">35</span>,(<span class="fl">3.0</span>,THE MILLENNIUM FULCRUM EDITION <span class="fl">3.0</span>))
+(<span class="dv">35</span>,(EDITION,THE MILLENNIUM FULCRUM EDITION <span class="fl">3.0</span>))
+(<span class="dv">35</span>,(FULCRUM,THE MILLENNIUM FULCRUM EDITION <span class="fl">3.0</span>))
+(<span class="dv">35</span>,(MILLENNIUM,THE MILLENNIUM FULCRUM EDITION <span class="fl">3.0</span>))
+(<span class="dv">40</span>,(Down,CHAPTER I. Down the Rabbit-Hole))
+(<span class="dv">40</span>,(I.,CHAPTER I. Down the Rabbit-Hole))
+(<span class="dv">40</span>,(Rabbit-Hole,CHAPTER I. Down the Rabbit-Hole))
+(<span class="dv">43</span>,(<span class="kw">do</span>:,bank, and of having nothing to <span class="kw">do</span>: once or twice she had peeped into the))
+(<span class="dv">43</span>,(twice,bank, and of having nothing to <span class="kw">do</span>: once or twice she had peeped into the))</code></pre>
+<p>That's it. You have learned the basics: TypedPipe, map/flatMap/filter groups do reduce/join: max, sum, join, take, sortBy</p>
+
+</div>
+
+</div>
+</div>
+
+</body>
+</html>
+
