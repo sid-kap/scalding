@@ -1,0 +1,540 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+  <meta http-equiv="Content-Style-Type" content="text/css"></meta>
+  <meta name="generator" content="pandoc"></meta>
+  <title>Type-safe API Reference</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="http://localhost:8000/_src/css/bootstrap.min.css" type="text/css"></link>
+  <link rel="stylesheet" href="http://localhost:8000/_src/css/custom.css" type="text/css"></link>
+  <style type="text/css">
+    table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+      margin: 0; padding: 0; vertical-align: baseline; border: none; }
+    table.sourceCode { width: 100%; line-height: 100%; }
+    td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+    td.sourceCode { padding-left: 5px; }
+    code > span.kw { color: #007020; font-weight: bold; }
+    code > span.dt { color: #902000; }
+    code > span.dv { color: #40a070; }
+    code > span.bn { color: #40a070; }
+    code > span.fl { color: #40a070; }
+    code > span.ch { color: #4070a0; }
+    code > span.st { color: #4070a0; }
+    code > span.co { color: #60a0b0; font-style: italic; }
+    code > span.ot { color: #007020; }
+    code > span.al { color: #ff0000; font-weight: bold; }
+    code > span.fu { color: #06287e; }
+    code > span.er { color: #ff0000; font-weight: bold; }
+  </style>
+</head>
+<body>
+
+<div class="row">
+    <div class="container">
+        <div class="col-xs-4">
+            <img id="logo" src="http://localhost:8000//_src/scalding.png">
+        </div>
+    </div>
+</div>
+
+<div class="container">
+<div class="row">
+
+<div class="col-xs-3" role="navigation" id="nav-left">
+    
+    <ul class="nav nav-pills nav-stacked"><li role="presentation"><a href="http://localhost:8000/site/.Foo.md.html">.Foo.md</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/11.html"></a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/Home.html">Home</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/_Sidebar.html">_Sidebar</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/hello.html">hello</a>
+    </li>
+    </ul>
+    Tutorials > Beginner
+    <ul class="nav nav-pills nav-stacked"><li role="presentation"><a href="http://localhost:8000/site/01-Tutorials/01-Beginner/01-Getting-Started.html">Getting Started</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/01-Tutorials/01-Beginner/02-Alice-in-Wonderland.html">Alice in Wonderland</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/01-Tutorials/01-Beginner/03-Intro-to-Scalding-Jobs.html">Intro to Scalding Jobs</a>
+    </li>
+    </ul>
+    Tutorials > Intermediate
+    <ul class="nav nav-pills nav-stacked"><li role="presentation"><a href="http://localhost:8000/site/01-Tutorials/02-Intermediate/Aggregation-using-Algebird-Aggregators.html">Aggregation using Algebird Aggregators</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/01-Tutorials/02-Intermediate/SQL-to-Scalding.html">SQL to Scalding</a>
+    </li>
+    </ul>
+    Tutorials > Advanced
+    <ul class="nav nav-pills nav-stacked"><li role="presentation"><a href="http://localhost:8000/site/01-Tutorials/03-Advanced/Building-bigger-platforms-with-scalding.html">Building bigger platforms with scalding</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/01-Tutorials/03-Advanced/Introduction-to-Matrix-Library.html">Introduction to Matrix Library</a>
+    </li>
+    </ul>
+    Reference
+    <ul class="nav nav-pills nav-stacked"><li role="presentation"><a href="http://localhost:8000/site/02-Reference/API-Reference.html">API Reference</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/02-Reference/Calling-Scalding-from-Inside-Your-Application.html">Calling Scalding from Inside Your Application</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/02-Reference/Common-Exceptions-and-Possible-Reasons.html">Common Exceptions and Possible Reasons</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/02-Reference/Frequently-asked-questions.html">Frequently asked questions</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/02-Reference/Matrix-API-Reference.html">Matrix API Reference</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/02-Reference/Pig-to-Scalding.html">Pig to Scalding</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/02-Reference/REPL-Reference.html">REPL Reference</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/02-Reference/Rosetta-Code.html">Rosetta Code</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/02-Reference/Scald.rb.html">Scald.rb</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/02-Reference/Scalding-Commons.html">Scalding Commons</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/02-Reference/Scalding-HBase.html">Scalding HBase</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/02-Reference/Scalding-REPL.html">Scalding REPL</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/02-Reference/Scalding-Sources.html">Scalding Sources</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/02-Reference/Type-safe-api-reference.html">Type safe api reference</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/02-Reference/Using-scalding-with-other-versions-of-scala.html">Using scalding with other versions of scala</a>
+    </li>
+    </ul>
+    Reference > Fields API (Deprecated)
+    <ul class="nav nav-pills nav-stacked"><li role="presentation"><a href="http://localhost:8000/site/02-Reference/01-Fields-API-(Deprecated)/Fields-API:-reduce-functions-of-GroupBuilder.html">Fields API: reduce functions of GroupBuilder</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/02-Reference/01-Fields-API-(Deprecated)/Fields-based-API-Reference.html">Fields based API Reference</a>
+    </li>
+    </ul>
+    Other
+    <ul class="nav nav-pills nav-stacked"><li role="presentation"><a href="http://localhost:8000/site/03-Other/Comparison-to-Scrunch-and-Scoobi.html">Comparison to Scrunch and Scoobi</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/03-Other/Field-rules.html">Field rules</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/03-Other/Powered-By.html">Powered By</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/03-Other/Run-in-Intellij-IDEA.html">Run in Intellij IDEA</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/03-Other/Scala-and-sbt-for-Homebrew-users.html">Scala and sbt for Homebrew users</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/03-Other/Scala-and-sbt-for-MacPorts-users.html">Scala and sbt for MacPorts users</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/03-Other/Scalding-on-amazon-elastic-mapreduce.html">Scalding on amazon elastic mapreduce</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/03-Other/Scalding-with-CDH3U2-in-a-Maven-project.html">Scalding with CDH3U2 in a Maven project</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/03-Other/Upgrading-to-0.9.0.html">Upgrading to 0.9.0</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/03-Other/Using-the-distributed-cache.html">Using the distributed cache</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/03-Other/Why-pack-unpack-and-not--toList[].html">Why pack unpack and not  toList[]</a>
+    </li>
+    </ul>
+</div>
+
+<div class="col-xs-9 text-body">
+
+<div id="header">
+<h1 class="title">Type-safe API Reference</h1>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#basics">Basics</a></li>
+<li><a href="#map-like-functions">Map-like functions</a></li>
+<li><a href="#creating-groups-and-joining-cogrouping">Creating Groups and Joining (CoGrouping)</a></li>
+<li><a href="#joiningcogrouping">Joining/CoGrouping</a></li>
+<li><a href="#valuepipe-working-with-values-that-will-be-computed">ValuePipe: working with values that will be computed</a></li>
+<li><a href="#records">Records</a></li>
+<li><a href="#aggregation-and-stream-processing">Aggregation and Stream Processing</a></li>
+<li><a href="#powerful-aggregation-with-algebird">Powerful Aggregation with Algebird</a></li>
+<li><a href="#interoperating-between-fields-api-and-type-safe-api">Interoperating between Fields API and Type-safe API</a></li>
+</ul>
+</div>
+<p>There are two main concepts in the type-safe API: a <code>TypedPipe[T]</code> which is kind of a distributed list of objects of type <code>T</code> and a <code>KeyedList[K,V]</code> which represents some sharding of objects of key <code>K</code> and value <code>V</code>. There are a few KeyedList objects: <code>Grouped[K,V]</code>, <code>CoGrouped[K, V]</code>. The former represents usual groupings, and the latter is used for cogroupings or joins.</p>
+<h3 id="basics">Basics</h3>
+<p>Most of the Typed API is available simply by importing <code>com.twitter.scalding._</code>. Most sources, even the simple <code>TextLine</code> source, are typed (implement the <code>TypedSource</code> trait), which means it is easy to get a <code>TypedPipe</code> to begin performing operations on.</p>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">import</span> com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">_</span>
+<span class="kw">import</span> com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">ReplImplicits</span>.<span class="fu">_</span>
+<span class="kw">import</span> com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">ReplImplicitContext</span>.<span class="fu">_</span></code></pre>
+<pre class="sourceCode scala"><code class="sourceCode scala">scala> <span class="kw">val</span> lines: TypedPipe[String] = TypedPipe.<span class="fu">from</span>(<span class="fu">TextLine</span>(<span class="st">"hello.txt"</span>))
+lines: com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">TypedPipe</span>[String] = com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipeFactory</span>@34cc6f63</code></pre>
+<pre class="sourceCode scala"><code class="sourceCode scala">scala> <span class="co">// do word count</span>
+     | (lines.<span class="fu">flatMap</span>(_.<span class="fu">split</span>(<span class="st">"</span><span class="ch">\\</span><span class="st">s+"</span>))
+     |   .<span class="fu">group</span>
+     |   .<span class="fu">sum</span>
+     |   .<span class="fu">write</span>(TypedTsv[(String, Long)](<span class="st">"output"</span>)))
+<console>:<span class="dv">21</span>: error: Cannot prove that String <:< (K, V).
+                .<span class="fu">group</span>
+                 ^</code></pre>
+<p>The above example generated an error. The problem appears to be that you are running the group function on a TypedPipe[String] when it expects a TypedPipe[(K,V)]. Essentially you need a pipe of tuples in order to group.</p>
+<pre class="sourceCode scala"><code class="sourceCode scala">scala> <span class="co">// reverse all lines in the file</span>
+     | <span class="kw">val</span> reversedLines: TypedPipe[String] = lines.<span class="fu">map</span>(_.<span class="fu">reverse</span>)
+reversedLines: com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">TypedPipe</span>[String] = com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipeFactory</span>@3b878ade
+
+scala> reversedLines.<span class="fu">write</span>(TypedTsv[String](<span class="st">"output.tsv"</span>))
+res3: com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipe</span>[String] = com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipeFactory</span>@2b36c5ae</code></pre>
+<p>In the above example we show the preferred way to get a <code>TypedPipe</code> — using <code>TypedPipe.from()</code>, and then demonstrate running a map operation and writing out to a typed sink (<code>TypedTsv</code>).</p>
+<h3 id="map-like-functions">Map-like functions</h3>
+<h4 id="map">map</h4>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">def</span> map[U](f : T => U) : TypedPipe[U]</code></pre>
+<p>Converts a <code>TypedPipe[T]</code> to a <code>TypedPipe[U]</code> via <code>f : T => U</code></p>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">case</span> <span class="kw">class</span> <span class="fu">Bird</span>(name: String, weightInPounds: Double,
+                heightInFeet: Double, color: String)
+
+<span class="kw">val</span> birds: TypedPipe[Bird] = TypedPipe.<span class="fu">from</span>(Seq(
+    <span class="fu">Bird</span>(<span class="st">"George"</span>, <span class="fl">12.2</span>, <span class="fl">2.1</span>, <span class="st">"blue"</span>),
+    <span class="fu">Bird</span>(<span class="st">"Gatz"</span>, <span class="fl">12.9</span>, <span class="fl">3.21</span>, <span class="st">"green"</span>),
+    <span class="fu">Bird</span>(<span class="st">"Jay"</span>, <span class="fl">13.9</span>, <span class="fl">2.7</span>, <span class="st">"yellow"</span>)))
+
+<span class="kw">val</span> britishBirds: TypedPipe[(Double, Double)] =
+  birds.<span class="fu">map</span> { bird =>
+    (<span class="fl">0.454</span> * bird.<span class="fu">weightInPounds</span>, <span class="fl">0.305</span> * bird.<span class="fu">heightInFeet</span>)
+  }</code></pre>
+<pre class="sourceCode scala"><code class="sourceCode scala">scala> britishBirds.<span class="fu">dump</span>
+(<span class="fl">5.5388</span>,<span class="fl">0.6405</span>)
+(<span class="fl">5.8566</span>,<span class="fl">0.97905</span>)
+(<span class="fl">6.3106</span>,<span class="fl">0.8235</span>)</code></pre>
+<h4 id="flatmap">flatMap</h4>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">def</span> flatMap[U](f : T => Iterable[U]) : TypedPipe[U]</code></pre>
+<p>Converts a <code>TypedPipe[T]</code> to a <code>TypedPipe[U]</code> by applying <code>f : T => Iterable[U]</code> followed by flattening.</p>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">case</span> <span class="kw">class</span> Book(title: String, author: String, text: String)
+<span class="kw">val</span> books: TypedPipe[Book] = TypedPipe.<span class="fu">from</span>(Seq(
+  Book(<span class="st">"To Kill a Mockingbird"</span>, <span class="st">"Harper Lee"</span>, <span class="st">"Atticus Finch"</span>),
+  Book(<span class="st">"The Fountainhead"</span>, <span class="st">"Ayn Rand"</span>, <span class="st">"Gale Winand"</span>),
+  Book(<span class="st">"A Separate Peace"</span>, <span class="st">"John Knowles"</span>, <span class="st">"Finny"</span>)))
+<span class="kw">val</span> words: TypedPipe[String] = books.<span class="fu">flatMap</span> { _.<span class="fu">text</span>.<span class="fu">split</span>(<span class="st">"</span><span class="ch">\\</span><span class="st">s+"</span>) }</code></pre>
+<pre class="sourceCode scala"><code class="sourceCode scala">scala> words.<span class="fu">dump</span>
+Atticus
+Finch
+Gale
+Winand
+Finny</code></pre>
+<p>Here's an example that uses Option. (Either an animal name passes by in the pipe or nothing.)</p>
+<pre class="sourceCode scala"><code class="sourceCode scala">scala> birds.<span class="fu">flatMap</span> { b =>
+     |   <span class="kw">if</span> (b.<span class="fu">color</span> == <span class="st">"yellow"</span>) { Some(b.<span class="fu">name</span>) } <span class="kw">else</span> None
+     | }.<span class="fu">dump</span>
+Jay</code></pre>
+<h4 id="filter">filter</h4>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">def</span> <span class="fu">filter</span>(f: T => Boolean): TypedPipe[T]</code></pre>
+<p>If you return <code>true</code> you keep the row, otherwise the row is ignored.</p>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">case</span> <span class="kw">class</span> <span class="fu">Animal</span>(name: String, kind: String)
+<span class="kw">val</span> animals: TypedPipe[Animal] = TypedPipe.<span class="fu">from</span>(Seq(
+  <span class="fu">Animal</span>(<span class="st">"George"</span>, <span class="st">"rabbit"</span>),
+  <span class="fu">Animal</span>(<span class="st">"Gatz"</span>, <span class="st">"bird"</span>),
+  <span class="fu">Animal</span>(<span class="st">"Joe"</span>, <span class="st">"cow"</span>),
+  <span class="fu">Animal</span>(<span class="st">"Jay"</span>, <span class="st">"bird"</span>)))
+<span class="kw">val</span> birds = animals.<span class="fu">filter</span> { _.<span class="fu">kind</span> == <span class="st">"bird"</span> }</code></pre>
+<pre class="sourceCode scala"><code class="sourceCode scala">scala> birds.<span class="fu">dump</span>
+<span class="fu">Animal</span>(Gatz,bird)
+<span class="fu">Animal</span>(Jay,bird)</code></pre>
+<h4 id="filternot">filterNot</h4>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">def</span> <span class="fu">filterNot</span>(f : T => Boolean) : TypedPipe[T]</code></pre>
+<p>Acts like <code>filter</code> with a negated predicate - keeps the rows where the predicate function returns <code>false</code>, otherwise the row is ignored.</p>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">val</span> notBirds = animals.<span class="fu">filterNot</span> { _.<span class="fu">kind</span> == <span class="st">"bird"</span> }</code></pre>
+<pre class="sourceCode scala"><code class="sourceCode scala">scala> notBirds.<span class="fu">dump</span>
+<span class="fu">Animal</span>(George,rabbit)
+<span class="fu">Animal</span>(Joe,cow)</code></pre>
+<h4 id="collect">collect</h4>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">def</span> <span class="fu">collect</span>(f: PartialFunction[T, U]): TypedPipe[U]</code></pre>
+<p>Filters and maps with Scala's partial function syntax (case):</p>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">val</span> birdNames: TypedPipe[String] = animals.<span class="fu">collect</span> { <span class="kw">case</span> <span class="fu">Animal</span>(name, <span class="st">"bird"</span>) => name }
+<span class="co">//This is the same as flatMapping an Option.</span></code></pre>
+<pre class="sourceCode scala"><code class="sourceCode scala">     | birdNames.<span class="fu">dump</span>
+Gatz
+Jay</code></pre>
+<h3 id="creating-groups-and-joining-cogrouping">Creating Groups and Joining (CoGrouping)</h3>
+<h4 id="grouping">Grouping</h4>
+<p>These are all methods on <code>TypedPipe[T]</code>. Notice that these methods do not return a <code>TypedPipe[T]</code> anymore; instead, they return <code>Grouped[K,T]</code>.</p>
+<h4 id="groupby">groupBy</h4>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">def</span> groupBy[K](g: T => K)(<span class="kw">implicit</span> ord: Ordering[K]) : Grouped[K,T]</code></pre>
+<p>Call <code>g : T => K</code> on a <code>TypedPipe[T]</code> to create a <code>Grouped[K,T]</code>. Subsequent aggregation methods use <code>K</code> as the type of the grouping key. We can use any of the functions on Groups specified on the Fields API to transform the <code>Grouped[K, T]</code> to a <code>TypedPipe[U]</code>. Notice that those functions act on <code>T</code>.</p>
+<p>Groups need an <code>Ordering</code> (i.e. a comparator) for the key <code>K</code> that we are grouping by. This is implemented for all the standard variable types that we use, in which case no explicit declaration is necessary.</p>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">case</span> <span class="kw">class</span> Book(title: String, author: String, year: Int)
+<span class="kw">val</span> books: TypedPipe[Book] = TypedPipe.<span class="fu">from</span>(Seq(
+  Book(<span class="st">"To Kill a Mockingbird"</span>, <span class="st">"Harper Lee"</span>, <span class="dv">1960</span>),
+  Book(<span class="st">"Go Set a Watchman"</span>, <span class="st">"Harper Lee"</span>, <span class="dv">2015</span>),
+  Book(<span class="st">"The Fountainhead"</span>, <span class="st">"Ayn Rand"</span>, <span class="dv">1943</span>),
+  Book(<span class="st">"Atlas Shrugged"</span>, <span class="st">"Ayn Rand"</span>, <span class="dv">1957</span>),
+  Book(<span class="st">"A Separate Peace"</span>, <span class="st">"John Knowles"</span>, <span class="dv">1959</span>)))</code></pre>
+<p>We want to group all the books based on their author</p>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">val</span> byAuthor: Grouped[String, Book] = books.<span class="fu">groupBy</span> { <span class="kw">case</span> book => book.<span class="fu">author</span> }</code></pre>
+<p>Now, we have <code>Grouped[String, Book]</code>.</p>
+<pre class="sourceCode scala"><code class="sourceCode scala">scala> byAuthor.<span class="fu">dump</span>
+(Harper Lee,Book(To Kill a Mockingbird,Harper Lee,<span class="dv">1960</span>))
+(Harper Lee,Book(Go Set a Watchman,Harper Lee,<span class="dv">2015</span>))
+(Ayn Rand,Book(The Fountainhead,Ayn Rand,<span class="dv">1943</span>))
+(Ayn Rand,Book(Atlas Shrugged,Ayn Rand,<span class="dv">1957</span>))
+(John Knowles,Book(A Separate Peace,John Knowles,<span class="dv">1959</span>))</code></pre>
+<pre class="sourceCode scala"><code class="sourceCode scala">scala> byAuthor.<span class="fu">size</span>.<span class="fu">dump</span>
+(Ayn Rand,<span class="dv">2</span>)
+(Harper Lee,<span class="dv">2</span>)
+(John Knowles,<span class="dv">1</span>)</code></pre>
+<p>This creates a <code>KeyedList[String, Int]</code>, where the String corresponds to the author and the Int corresponds to the number of books that the author wrote. <code>KeyedList</code> objects are automatically converted to <code>TypedPipe</code>s as needed, or you can call <code>.toTypedPipe</code> if you prefer.</p>
+<h4 id="group-implicit-grouping">group (implicit grouping)</h4>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="co">// uses scala's <:< to require that T is a subclass of (K, V).</span>
+<span class="kw">def</span> group[K, V](<span class="kw">implicit</span> ev: T <:< (K, V), ord : Ordering[K]): Grouped[K, V]</code></pre>
+<p>Special case of <code>groupBy</code> that can be called on <code>TypedPipe[(K, V)]</code>. Uses <code>K</code> as the grouping key.</p>
+<h4 id="groupall-send-everything-to-one-reducer">groupAll (send everything to one reducer)</h4>
+<p>In scala there is a type that has one less value than Boolean, and that is Unit. There is only value in the type Unit. The value is written as <code>()</code>.</p>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">def</span> groupAll: Grouped[Unit,T]</code></pre>
+<p>Uses <code>Unit</code> as the grouping key. Useful to send all tuples to 1 reducer.</p>
+<p>Useful functions on <code>Grouped[K,V]</code>.</p>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">val</span> group: Grouped[K, V]
+group.<span class="fu">keys</span>
+<span class="co">//Creates a TypedPipe[K] consisting of the keys in the (key, value) pairs of group.</span>
+group.<span class="fu">values</span>
+<span class="co">//Creates a TypedPipe[V] consisting of the values in the (key, value) pairs of group.</span>
+group.<span class="fu">mapValues</span> { values => <span class="fu">mappingFunction</span>(values) }
+<span class="co">//Creates a Grouped[K, V'], where the keys in the (key, value) pairs of group are unchanged, but the values are changed to V'.</span></code></pre>
+<h3 id="joiningcogrouping">Joining/CoGrouping</h3>
+<p>These are all methods on <code>CoGroupable[K, V]</code>. <code>TypedPipe[K, V]</code>, <code>Grouped[K, V]</code> and even <code>CoGrouped[K, V]</code> are CoGroupable. If possible, put the CoGroupable with the most values per key on the left; this greatly improves performance, but correctness is not impacted. In extreme cases failure to do so can lead to OutOfMemoryErrors. First, we group the pipe by key of type <code>K</code> to get <code>Grouped[K, V]</code>. Then, we join with another group of the same key <code>K</code>, for example <code>Grouped[K, W]</code>.</p>
+<h4 id="join-inner-join">join (inner-join)</h4>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">def</span> join[W](smaller: CoGroupable[K, W]): CoGrouped[K, (V, W)]</code></pre>
+<p>Note that <code>CoGrouped</code> extends <code>KeyedListLike</code>, so any reducing functions you are used to on <code>Grouped</code> will also work on a <code>CoGrouped</code>.</p>
+<p>We already know <code>K</code> and <code>V</code>. The only type that could be specified in the join function is <code>W</code>, which is the value in the key-valued group of the <code>smaller</code> group.</p>
+<p>Suppose we have two libraries and we want to get a list of the books they have in common. The books of Library 2 have an additional field "copies."</p>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">import</span> com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.{CoGroupable, CoGrouped}
+
+<span class="kw">case</span> <span class="kw">class</span> Book(title: String, author: String)
+<span class="kw">case</span> <span class="kw">class</span> <span class="fu">ExtendedBook</span>(title: String, author: String, copies: Long)
+
+<span class="kw">val</span> library1: TypedPipe[Book] = TypedPipe.<span class="fu">from</span>(Seq(
+  Book(<span class="st">"To Kill a Mockingbird"</span>, <span class="st">"Harper Lee"</span>),
+  Book(<span class="st">"The Fountainhead"</span>, <span class="st">"Ayn Rand"</span>),
+  Book(<span class="st">"Atlas Shrugged"</span>, <span class="st">"Ayn Rand"</span>),
+  Book(<span class="st">"A Separate Peace"</span>, <span class="st">"John Knowles"</span>)))
+
+<span class="kw">val</span> library2: TypedPipe[ExtendedBook] = TypedPipe.<span class="fu">from</span>(Seq(
+  <span class="fu">ExtendedBook</span>(<span class="st">"To Kill a Mockingbird"</span>, <span class="st">"Harper Lee"</span>, <span class="dv">10</span>),
+  <span class="fu">ExtendedBook</span>(<span class="st">"The Fountainhead"</span>, <span class="st">"Ayn Rand"</span>, <span class="dv">6</span>),
+  <span class="fu">ExtendedBook</span>(<span class="st">"Go Set a Watchman"</span>, <span class="st">"Harper Lee"</span>, <span class="dv">2</span>)))
+
+<span class="co">// Group the books of Library 1 by book title.</span>
+<span class="kw">val</span> group1: CoGroupable[String, Book] = library1.<span class="fu">groupBy</span> { _.<span class="fu">title</span> }
+
+<span class="co">// Similarly, group the books of Library 2 by book title.</span>
+<span class="kw">val</span> group2: CoGroupable[String, ExtendedBook] = library2.<span class="fu">groupBy</span> { _.<span class="fu">title</span> }
+
+<span class="co">// We do group1.join(group2) instead of group2.join(group1)</span>
+<span class="co">// because group1 is larger</span>
+<span class="kw">val</span> theJoin: CoGrouped[String, (Book, ExtendedBook)] = group1.<span class="fu">join</span>(group2)</code></pre>
+<pre class="sourceCode scala"><code class="sourceCode scala">scala> theJoin.<span class="fu">dump</span>
+(The Fountainhead,(Book(The Fountainhead,Ayn Rand),<span class="fu">ExtendedBook</span>(The Fountainhead,Ayn Rand,<span class="dv">6</span>)))
+(To Kill a Mockingbird,(Book(To Kill a Mockingbird,Harper Lee),<span class="fu">ExtendedBook</span>(To Kill a Mockingbird,Harper Lee,<span class="dv">10</span>)))</code></pre>
+<h4 id="leftjoin">leftJoin</h4>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">def</span> leftJoin[W](smaller: CoGroupable[K, W]): CoGrouped[K, (V, Option[W])]</code></pre>
+<p>Using the definitions from the previous example, assume you are the general manager of Library 1 and you are interested in a complete list of all the books in your library. In addition, you would like to know, which of those books can also be found in Library 2, in case the ones in your library are being used:</p>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">val</span> theLeftJoin: CoGrouped[String, (Book, Option[ExtendedBook])] = group1.<span class="fu">leftJoin</span>(group2)</code></pre>
+<pre class="sourceCode scala"><code class="sourceCode scala">scala> theLeftJoin.<span class="fu">dump</span>
+(A Separate Peace,(Book(A Separate Peace,John Knowles),None))
+(Atlas Shrugged,(Book(Atlas Shrugged,Ayn Rand),None))
+(The Fountainhead,(Book(The Fountainhead,Ayn Rand),Some(<span class="fu">ExtendedBook</span>(The Fountainhead,Ayn Rand,<span class="dv">6</span>))))
+(To Kill a Mockingbird,(Book(To Kill a Mockingbird,Harper Lee),Some(<span class="fu">ExtendedBook</span>(To Kill a Mockingbird,Harper Lee,<span class="dv">10</span>))))</code></pre>
+<h4 id="rightjoin">rightJoin</h4>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">def</span> rightJoin[W](smaller: CoGroupable[K, W]): CoGrouped[K, (Option[V], W)]</code></pre>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">val</span> theRightJoin: CoGrouped[String, (Option[Book], ExtendedBook)] = group1.<span class="fu">rightJoin</span>(group2)</code></pre>
+<pre class="sourceCode scala"><code class="sourceCode scala">scala> theRightJoin.<span class="fu">dump</span>
+(Go Set a Watchman,(None,<span class="fu">ExtendedBook</span>(Go Set a Watchman,Harper Lee,<span class="dv">2</span>)))
+(The Fountainhead,(Some(Book(The Fountainhead,Ayn Rand)),<span class="fu">ExtendedBook</span>(The Fountainhead,Ayn Rand,<span class="dv">6</span>)))
+(To Kill a Mockingbird,(Some(Book(To Kill a Mockingbird,Harper Lee)),<span class="fu">ExtendedBook</span>(To Kill a Mockingbird,Harper Lee,<span class="dv">10</span>)))</code></pre>
+<h4 id="outerjoin">outerJoin</h4>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">def</span> outerJoin[W](smaller: CoGroupable[K, W]): CoGrouped[K, (Option[V], Option[W])]</code></pre>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">val</span> theOuterJoin: CoGrouped[String, (Option[Book], Option[ExtendedBook])] = group1.<span class="fu">outerJoin</span>(group2)</code></pre>
+<pre class="sourceCode scala"><code class="sourceCode scala">scala> theOuterJoin.<span class="fu">dump</span>
+(A Separate Peace,(Some(Book(A Separate Peace,John Knowles)),None))
+(Atlas Shrugged,(Some(Book(Atlas Shrugged,Ayn Rand)),None))
+(Go Set a Watchman,(None,Some(<span class="fu">ExtendedBook</span>(Go Set a Watchman,Harper Lee,<span class="dv">2</span>))))
+(The Fountainhead,(Some(Book(The Fountainhead,Ayn Rand)),Some(<span class="fu">ExtendedBook</span>(The Fountainhead,Ayn Rand,<span class="dv">6</span>))))
+(To Kill a Mockingbird,(Some(Book(To Kill a Mockingbird,Harper Lee)),Some(<span class="fu">ExtendedBook</span>(To Kill a Mockingbird,Harper Lee,<span class="dv">10</span>))))</code></pre>
+<p>Like all KeyedListLike instances, <code>CoGrouped</code> has <code>toTypedPipe</code> to explicitly convert to TypedPipe. However, this is automatic (implicit from <code>KeyedListLike[K, V, _] => TypedPipe[(K, V)]</code> in object KeyedListLike).</p>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">val</span> myJoin: CoGrouped[K, (V, W)]
+<span class="kw">val</span> tpipe: TypedPipe[(K, (V, W))] = myJoin.<span class="fu">toTypedPipe</span></code></pre>
+<h4 id="joining-multiple-streams">Joining multiple streams</h4>
+<p>Since <code>CoGrouped</code> is <code>CoGroupable</code> it is perfectly legal to do <code>a.join(b).join(c).leftJoin(d).outerJoin(e)</code> and it will run in one map/reduce job, but the value type will be a bit ugly: <code>(Option[(((A, B), C), Option[D])], Option[E])</code>. To make this cleaner, in scalding 0.12 we introduce the <code>MultiJoin</code> object. <code>MultiJoin(a, b, c, d)</code> does an inner join with a value tuple of <code>(A, B, C, D)</code> as you might expect. You can also do <code>MultiJoin.left</code> or <code>MultiJoin.outer</code>.</p>
+<h4 id="map-side-replicated-joins">Map-side (replicated) joins:</h4>
+<p>These methods do not require a reduce step, but should only be used on extremely small arguments since each mapper will read the entire argument to do the join.</p>
+<h4 id="cross">cross</h4>
+<p>Suppose we want to send every value from one <code>TypedPipe[U]</code> to each value of a <code>TypedPipe[T]</code>. <code>List(1,2,3) cross List(4,5)</code> gives <code>List((1,4),(1,5),(2,4),(2,5),(3,4),(3,5))</code>. The final size is <code>left.size * right.size</code>.</p>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="co">// Implements a cross product.  The right side should be tiny.</span>
+<span class="kw">def</span> cross[U](tiny: TypedPipe[U]): TypedPipe[(T,U)]</code></pre>
+<h4 id="hashjoin">hashJoin</h4>
+<p>A very efficient join, which works when the right side is tiny, is hashJoin. All the (key, value) pairs from the right side are stored in a hash table for quick retrieval. The hash table is replicated on every mapper and the hashJoin operation takes place entirely on the mappers (no reducers involved).</p>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="co">// Again, the right side should be tiny.</span>
+<span class="kw">def</span> hashJoin[W](tiny: HashJoinable[K, W]): TypedPipe[(K, (V, W))]</code></pre>
+<blockquote>
+<p>Tip: All groups and joins have .withReducers(n) to explicitly set the number of reducers for that step. For other options, please refer to: <a href="http://twitter.github.io/scalding/#com.twitter.scalding.typed.Grouped" class="uri">http://twitter.github.io/scalding/#com.twitter.scalding.typed.Grouped</a> and <a href="http://twitter.github.io/scalding/#com.twitter.scalding.typed.CoGrouped" class="uri">http://twitter.github.io/scalding/#com.twitter.scalding.typed.CoGrouped</a></p>
+</blockquote>
+<h3 id="valuepipe-working-with-values-that-will-be-computed">ValuePipe: working with values that will be computed</h3>
+<p>Sometimes we reduce everything down to one value:</p>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">val</span> userFollowers: TypedPipe[(Long, Int)] = <span class="co">// function to get</span>
+
+<span class="kw">val</span> topUsers: TypedPipe[Long] = allUsers
+  .<span class="fu">collect</span> { <span class="kw">case</span> (uid, followers) <span class="kw">if</span> followers > <span class="dv">1000000</span> => uid }
+
+<span class="co">// put it in a value:</span>
+<span class="kw">val</span> topUsers: ValuePipe[Set[Long]] = topUsers.<span class="fu">map</span>(Set(_)).<span class="fu">sum</span></code></pre>
+<p>A value Pipe is a kind of future value: it is a value that will be computed by your job, but is not there yet. TypedPipe.sum returns a ValuePipe.</p>
+<p>When you have this, you can then use it on another TypedPipe:</p>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">val</span> allClickers: TypedPipe[Long] = <span class="co">//...</span>
+
+<span class="kw">val</span> topClickers = allClickers.<span class="fu">filterWithValue</span>(topUsers) { (clicker, optSet) =>
+  optSet.<span class="fu">get</span>.<span class="fu">contains</span>(clicker) <span class="co">// keep the topUsers that are also clickers</span>
+}</code></pre>
+<p>You can also mapWithValue or flatMapWithValue. See <a href="https://github.com/twitter/scalding/blob/develop/scalding-core/src/main/scala/com/twitter/scalding/typed/ValuePipe.scala">ValuePipe.scala</a> for more.</p>
+<h3 id="records">Records</h3>
+<p>Suppose you have many fields and you want to update just one or two. Did you know about the <code>copy</code> method on all case classes?</p>
+<p>Consider this example:</p>
+<pre class="sourceCode scala"><code class="sourceCode scala">scala> <span class="kw">case</span> <span class="kw">class</span> <span class="fu">Record</span>(name: String, weight: Double)
+defined <span class="kw">class</span> Record
+
+scala> List(<span class="fu">Record</span>(<span class="st">"Bob"</span>, <span class="fl">180.3</span>), <span class="fu">Record</span>(<span class="st">"Lisa"</span>, <span class="fl">154.3</span>))
+res22: List[Record] = List(<span class="fu">Record</span>(Bob,<span class="fl">180.3</span>), <span class="fu">Record</span>(Lisa,<span class="fl">154.3</span>))
+
+scala> List(<span class="fu">Record</span>(<span class="st">"Bob"</span>, <span class="fl">180.3</span>), <span class="fu">Record</span>(<span class="st">"Lisa"</span>, <span class="fl">154.3</span>)).<span class="fu">map</span> { r =>
+  <span class="kw">val</span> w = r.<span class="fu">weight</span> + <span class="fl">10.0</span>
+  r.<span class="fu">copy</span>(weight = w)
+}
+res23: List[Record] = List(<span class="fu">Record</span>(Bob,<span class="fl">190.3</span>), <span class="fu">Record</span>(Lisa,<span class="fl">164.3</span>))</code></pre>
+<p>In exactly the same way, you can update just one or two fields in a case class on scalding with the typed API.</p>
+<p>This is how we recommend making records, but WATCH OUT: you need to define case classes OUTSIDE of your job due to serialization reasons (otherwise they create circular references).</p>
+<h3 id="aggregation-and-stream-processing">Aggregation and Stream Processing</h3>
+<p>Both <code>Grouped[K, R]</code> and <code>CoGrouped[K, R]</code> extend <code>KeyedListLike[K, R, _]</code>, which is the class that represents sublists of <code>R</code> sharded by <code>K</code>. The following methods are the main aggregations or stream processes you can run.</p>
+<h4 id="sum-generalized-reduction">sum: Generalized reduction</h4>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">def</span> sum[U >: V](<span class="kw">implicit</span> s: Semigroup[U]): KeyedListLike[K, U]</code></pre>
+<p>Scalding uses a type from Algebird called a Semigroup for sums. A semigroup is just a reduce function that has the property that <code>plus(plus(a, b), c) == plus(a, plus(b, c))</code>. The default Semigroup is what you probably expect: addition for numbers, union for sets, concatenation for lists, maps do an outer join on their keys and then do the semigroup for their value types.</p>
+<p>If there is no sorting on the values, scalding assumes that order does not matter and it will partially apply the sum on the mappers. This can dramatically reduce the communication cost of the job depending on how many keys there are in your data set.</p>
+<h4 id="reduce-an-ad-hoc-semigroup">reduce: an ad-hoc Semigroup</h4>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">def</span> <span class="fu">reduce</span>(fn: (V, V) => V): KeyedListLike[K, V]</code></pre>
+<p>This defines the plus function for a Semigroup, and then calls sum with that Semigroup. See the documentation there.</p>
+<h4 id="aggregate-using-aggregators-for-reusablity">aggregate: Using Aggregators for reusablity</h4>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">def</span> aggregate[B,C](a: Aggregator[V, B, C]): KeyedListLike[K, C]</code></pre>
+<p>check the <a href="https://github.com/twitter/scalding/wiki/Aggregation-using-Algebird-Aggregators">aggregator</a> tutorial for more explanation and examples.</p>
+<h4 id="foldleft-and-fold">foldLeft and fold</h4>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">def</span> foldLeft[U](init: U)(fn: (U, V) => U): KeyedListLike[K, U]</code></pre>
+<p>foldLeft is used where you might make a loop in some language. <code>U</code> is the some state you are updating every time you see a new value <code>V</code>. An example might be training a model on some data. U is your model. V are you data points. Your fn looks like: <code>foldLeft(defaultModel) { (model, data) => updateModel(model, data) }</code>.</p>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">def</span> fold[U](f: Fold[V, U]): KeyedListLike[K, U]
+<span class="kw">def</span> foldWithKey[U](fn: K => Fold[V, U]): KeyedListLike[K, U]</code></pre>
+<p>A <code>com.twitter.algebird.Fold</code> is an instance that encapsulates a fold function. The value of this is two fold:</p>
+<ol style="list-style-type: decimal">
+<li>Logic can be packaged in a Fold and shared across many jobs, for instance <a href="https://github.com/twitter/algebird/blob/develop/algebird-core/src/main/scala/com/twitter/algebird/Fold.scala#L328"><code>Fold.size</code></a></li>
+<li>Folds can be combined together so many functions can be applied in one pass over the data.</li>
+</ol>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">import</span> com.<span class="fu">twitter</span>.<span class="fu">algebird</span>.<span class="fu">Fold</span>
+<span class="kw">val</span> myWork: Fold[Int, (Long, Boolean, Int)] = {
+    Fold.<span class="fu">size</span>
+       .<span class="fu">join</span>(Fold.<span class="fu">forall</span> { i: Int => i > <span class="dv">0</span> })
+       .<span class="fu">join</span>(Fold.<span class="fu">sum</span>[Int])
+       .<span class="fu">map</span> { <span class="kw">case</span> ((size, pos), sum) => (size, pos, sum) }
+}</code></pre>
+<p>Folds are similar to Aggregators, with the exception that they MUST be run only on the reducers. If you can express an aggregation in terms of Aggregators, it is worthwhile to do so in that it can give you map-side reduction before going to the reducers.</p>
+<h4 id="mapgroup-and-mapvaluestream-totally-general-reducer-functions">mapGroup and mapValueStream: totally general reducer functions</h4>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">def</span> mapGroup[U](fn: (K, Iterator[V]) => Iterator[U]): KeyedListLike[K, U]
+<span class="kw">def</span> mapValueStream[U](fn: Iterator[V] => Iterator[U]): KeyedListLike[K, U]</code></pre>
+<p>It is pretty rare that you need a reduction that is not a sum, aggregate or fold, but it might occasionally come up. If you find yourself reaching for this very often, it might be a sign that you have not quite grokked how to use Aggregators or Folds.</p>
+<p>These functions give you an Iterator over the values on your reducer, and in the case of mapGroup the key, and you can transform just the values, not the key. If you need to change the key, output the new key and value in the U type, and then discard the keys using the <code>.values</code> method.</p>
+<p>Using mapGroup/mapValueStream always forces all the data to reducers. Realizing the entire stream of values at once (i.e. manually reversing or rescanning the data) can explode the memory, so prefer to operate one at time on the Iterators you are given.</p>
+<h4 id="example-datacubing">Example: Datacubing</h4>
+<p>A common pattern is called data-cubing. This is where you have some commutative sum that you want to materialize sums of all possible binary queries where part of the key is present or absent (making each point of the key space into a hyper-cube). Here is an <a href="https://gist.github.com/johnynek/dfa319c55934b8a38524">example of how to do this with the typed-API:</a></p>
+<p>The [[Fields-based API Reference]] has a builder-pattern object called GroupBuilder which allows you to easily create a tuple of several parallel aggregations, e.g. counting, summing, and taking the max, all in one pass through the data. The type-safe API has a way to do this, but it involves implementing a type-class for your object and using <code>KeyedList.sum</code> on the tuple. Below we give an example.</p>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">import</span> com.<span class="fu">twitter</span>.<span class="fu">algebird</span>.<span class="fu">Monoid</span>
+
+<span class="kw">case</span> <span class="kw">class</span> <span class="fu">Hipster</span>(name: String, ridesFixie: Boolean, rimmedGlasses: Boolean, income: Double) {
+  <span class="kw">def</span> hipsterScore: Double = List(ridesFixie, rimmedGlasses).<span class="fu">map</span> { <span class="kw">if</span>(_) <span class="fl">1.0</span> <span class="kw">else</span> <span class="fl">0.0</span> }.<span class="fu">sum</span> + <span class="fl">1.0</span>/income
+}
+
+<span class="co">// Monoid which chooses the highest hipster score</span>
+<span class="kw">implicit</span> <span class="kw">val</span> hipsterMonoid = <span class="kw">new</span> Monoid[Hipster] {
+  <span class="kw">def</span> zero = <span class="fu">Hipster</span>(<span class="st">"zeroHipster"</span>, <span class="kw">false</span>, <span class="kw">false</span>, Double.<span class="fu">NegativeInfinity</span>)
+  <span class="kw">def</span> <span class="fu">plus</span>(left: Hipster, right: Hipster) =
+    List(left, right).<span class="fu">maxBy</span> { _.<span class="fu">hipsterScore</span> }
+}
+
+<span class="co">// Now let's count our fixie riders find the biggest hipster</span>
+<span class="kw">val</span> people: TypedPipe[Hipster] = TypedPipe.<span class="fu">from</span>(Seq(
+  <span class="fu">Hipster</span>(<span class="st">"Joe"</span>, <span class="kw">true</span>, <span class="kw">false</span>, <span class="dv">20</span>),
+  <span class="fu">Hipster</span>(<span class="st">"George"</span>, <span class="kw">false</span>, <span class="kw">false</span>, <span class="dv">100</span>),
+  <span class="fu">Hipster</span>(<span class="st">"Grok"</span>, <span class="kw">true</span>, <span class="kw">true</span>, <span class="dv">1</span>)))
+
+<span class="co">// Now we want to know how many total people, fixie riders, and how many rimmed-glasses wearers,</span>
+<span class="co">// as well as the biggest hipster:</span>
+<span class="kw">val</span> (totalPeople, fixieRiders, rimmedGlasses, biggestHipster) = {
+  people.<span class="fu">map</span> { person =>
+    (1L, <span class="kw">if</span>(person.<span class="fu">ridesFixie</span>) 1L <span class="kw">else</span> 0L, <span class="kw">if</span>(person.<span class="fu">rimmedGlasses</span>) 1L <span class="kw">else</span> 0L, person)
+  }.<span class="fu">sum</span>
+   .<span class="fu">toOption</span>
+   .<span class="fu">get</span>
+}</code></pre>
+<pre class="sourceCode scala"><code class="sourceCode scala">scala> totalPeople
+res37: Long = <span class="dv">3</span>
+
+scala> fixieRiders
+res38: Long = <span class="dv">2</span>
+
+scala> rimmedGlasses
+res39: Long = <span class="dv">1</span>
+
+scala> biggestHipster
+res40: Hipster = <span class="fu">Hipster</span>(Grok,<span class="kw">true</span>,<span class="kw">true</span>,<span class="fl">1.0</span>)</code></pre>
+<p>Scalding automatically knows how to sum tuples (it does so element-wise, see <a href="https://github.com/twitter/algebird/blob/develop/algebird-core/src/main/scala/com/twitter/algebird/GeneratedAbstractAlgebra.scala">GeneratedAbstractAlgebra.scala</a>.</p>
+<h3 id="powerful-aggregation-with-algebird">Powerful Aggregation with Algebird</h3>
+<p><a href="https://gist.github.com/azymnis/7940080">See this example on Locality Sensitive Hashing</a> via <span class="citation">[@argyris]</span>(https://twitter.com/argyris/status/411364441909776386).</p>
+<h3 id="interoperating-between-fields-api-and-type-safe-api">Interoperating between Fields API and Type-safe API</h3>
+<p>If you can avoid the Fields API, we recommend it. But if you have legacy code that you want to keep while you are migrating to the Type-safe API, there are methods to help you.</p>
+<p>Generally, all the methods from the [[Fields-based API Reference]] are present with the following exceptions:</p>
+<ol style="list-style-type: decimal">
+<li>The mapping functions always replace the input with the output. map and flatMap in the Type safe API are similar to the mapTo and flatMapTo functions (respectively) in the Fields-based API.</li>
+<li>Due to the previous statement, there is no need to name fields.</li>
+</ol>
+<p>If you <code>import TDsl._</code> you get an enrichment on cascading Pipe objects to jump into a Typed block:</p>
+<pre class="sourceCode scala"><code class="sourceCode scala">  pipe.<span class="fu">typed</span>(('in0, 'in1) -> 'out) { tpipe : TypedPipe[(Int,Int)] =>
+     tpipe.<span class="fu">groupBy</span> { x => <span class="dv">1</span> } <span class="co">//groups on all the input tuples (equivalent to groupAll)</span>
+     .<span class="fu">mapValues</span> { tup => tup.<span class="fu">_1</span> + tup.<span class="fu">_2</span> } <span class="co">//sum the two values in each tuple</span>
+     .<span class="fu">sum</span> <span class="co">//sum all the tuple sums (i.e. sum everything)</span>
+     .<span class="fu">values</span> <span class="co">// discard the key which is 1</span>
+  }</code></pre>
+<p>In this example, we start off with a cascading Pipe (pipe), which has the <code>'in0</code> and <code>'in1</code> fields. We use the method <code>typed</code> in order to create a new TypedPipe (tpipe). Then, we apply all of our functions on the TypedPipe[(Int, Int)] to obtain a TypedPipe[Int] which has the total sum. Finally, this is converted back into the cascading Pipe (pipe) with the single field <code>'out</code>, which contains a single Tuple holding the total sum.</p>
+<p><strong>Converting pipes</strong></p>
+<ul>
+<li>To go from a pipe to a TypedPipe[T]: <code>mypipe.toTypedPipe[T](Fields_Kept)</code>. Fields_Kept specifies the fields in mypipe that we want to keep in the Typed Pipe.</li>
+<li>To go from a TypedPipe[T] to a pipe: <code>myTypedPipe.toPipe(f: Fields)</code> method. Since we go from a Typed to a cascading pipe, we actually need to give names to the fields.</li>
+</ul>
+<p>Example:</p>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">import</span> TDsl.<span class="fu">_</span>
+
+<span class="kw">case</span> <span class="kw">class</span> <span class="fu">Bird</span>(name : String, winLb : Float, color : String)
+<span class="kw">val</span> birds : TypedPipe[Bird] = getBirdPipe
+birds.<span class="fu">toPipe</span>('name, 'winLb, 'color) <span class="co">//Cascading Pipe with the 3 specified fields.</span>
+birds.<span class="fu">toTypedPipe</span>[(String, String)]('name, 'color) <span class="co">//Typed Pipe (keeping only some fields)</span></code></pre>
+<p>Advanced examples:</p>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">import</span> TDsl.<span class="fu">_</span>
+
+<span class="kw">case</span> <span class="kw">class</span> <span class="fu">Bird</span>(name : String, winLb : Float, hinFt : Float, color : String)
+<span class="kw">val</span> birds : TypedPipe[Bird] = getBirdPipe
+birds.<span class="fu">toPipe</span>('name, 'color)
+
+<span class="kw">val</span> p : TypedPipe[(Double, Double)] = TypedTsv[(Double,Double)](input, ('a, 'b)).<span class="fu">toTypedPipe</span>[(Double, Double)]('a, 'b)</code></pre>
+<p><code>TypedPipe[MyClass]</code> is slightly more involved, but you can get it in several ways. One straightforward way is:</p>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">object</span> Bird {
+  <span class="kw">def</span> <span class="fu">fromTuple</span>(t : (Double, Double)) : Bird = <span class="fu">Bird</span>(t.<span class="fu">_1</span>, t.<span class="fu">_2</span>)
+}
+
+<span class="kw">case</span> <span class="kw">class</span> <span class="fu">Bird</span>(weight : Double, height : Double) {
+  <span class="kw">def</span> toTuple : (Double, Double) = { (weight, height) }
+}
+
+<span class="kw">import</span> TDsl.<span class="fu">_</span>
+<span class="kw">val</span> birds : TypedPipe[Bird] = TypedTsv[(Double, Double)](path, ('weight, 'height)).<span class="fu">map</span>{ Bird.<span class="fu">fromTuple</span>(_) }</code></pre>
+
+</div>
+
+</div>
+</div>
+
+</body>
+</html>

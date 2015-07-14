@@ -8,12 +8,13 @@ import Lib (getRecursiveContents)
 import Text.Pandoc
 import Text.Blaze.Html.Renderer.String (renderHtml)
 import Text.Hamlet (HtmlUrl, hamlet)
-import Filesystem.Path.CurrentOS (fromText, toText, encode, decode)
-import qualified Filesystem.Path.CurrentOS as FSPath
+-- import Filesystem.Path.CurrentOS (fromText, toText, encode, decode)
+-- import qualified Filesystem.Path.CurrentOS as FSPath
+import qualified System.FilePath.Posix as FP
 import System.Environment (getArgs)
 import System.Directory (createDirectoryIfMissing)
 import System.IO.Unsafe (unsafeInterleaveIO)
-import System.IO (hPutStrLn, IOMode(..), withFile)
+import System.IO (hPutStr, IOMode(..), withFile)
 import Control.Monad (forM_)
 import qualified Data.Text as Text
 import qualified Data.ByteString as BS
@@ -21,13 +22,15 @@ import qualified Data.ByteString.Char8 as BSC8
 import qualified Control.Exception.Extensible as E (try, IOException)
 
 import Control.Applicative ( (<$>) )
-import Data.Maybe (catMaybes)
+import qualified Data.Maybe as Maybe (catMaybes, fromJust)
 
 import Text.Pandoc.Templates (getDefaultTemplate)
 import qualified Text.HTML.TagSoup as TagSoup
 
-import Data.List (isSuffixOf)
+import qualified Data.List as List
 import qualified Data.Tree as Tree
+import qualified Data.Set as Set
+import qualified Data.Map as Map
 
 markdownToHtml :: String -> IO String
 markdownToHtml s = do
@@ -39,53 +42,82 @@ transform = headerShift 1
 
 -- adds class="table" to all tables produced from the markdown files
 -- so that the correct bootstrap table css is applied
+--
+-- (hacky) Option to not escape &"<> in order to save our pandoc-generated
+-- css which uses >
 htmlTransform :: String -> String
-htmlTransform html = TagSoup.renderTags $ map f tags
-    where tags = TagSoup.parseTags html
+htmlTransform html = TagSoup.renderTagsOptions opts $ map f tags
+    where opts = TagSoup.renderOptions { TagSoup.optEscape = id }
+          tags = TagSoup.parseTags html
           f (TagSoup.TagOpen "table" xs) = TagSoup.TagOpen "table" $ ("class","table"):xs
           f x = x
-
-stringToFilePath :: String -> FSPath.FilePath
---stringToFilePath = FSPath.decode . BSC8.pack
-stringToFilePath = FSPath.decode . Text.pack
-
-filePathToString :: FSPath.FilePath -> String
---filePathToString = BSC8.unpack . FSPath.encode
-filePathToString = Text.unpack . FSPath.encode
 
 data MyRoute = Home
 
 render :: MyRoute -> [(Text.Text, Text.Text)] -> Text.Text
 render Home _ = "/home"
 
-navFiles :: [(String, String)] -> String
+navFiles :: Map.Map Section (Set.Set (String, String)) -> String
 navFiles xs = renderHtml $ [hamlet|
-  $forall (url, title) <- xs
-    <li role="presentation">
-      <a href="#{url}">#{title}
+  $forall (section, items) <- Map.toAscList xs
+    #{title section}
+    <ul class="nav nav-pills nav-stacked">
+      $forall (url, title) <- Set.toAscList items
+        <li role="presentation">
+          <a href="#{url}">#{title}
 |] render
 
-fileWithTitles :: String -> (String, String)
-fileWithTitles path = (path, base)
-    where base = filePathToString $ FSPath.basename $ stringToFilePath path
+-- <li role="presentation" class="active"><a href="#">$title$</a></li>
 
+extractTitle :: String -> String
+extractTitle path = dropNumber $ map go $ FP.takeBaseName path
+    where go '-' = ' '
+          go x   = x
+
+dropNumber :: String -> String
+dropNumber = dropWhile (flip elem "0123456789 ")
+
+-- groups files by directory, given a list of (path, title)
+groupFilesWithTitles :: [(String,String)] -> Map.Map String (Set.Set (String, String))
+groupFilesWithTitles xs = foldl addToMap Map.empty xs
+    where addToMap map (path,title) = Map.insertWith Set.union (FP.takeDirectory path) (Set.singleton (path,title)) map
+
+{-
+-- groups files by directory, given a list of path
+groupFiles :: [String] -> Map.Map String (Set.Set String)
+groupFiles xs = foldl addToMap Map.empty xs
+    where addToMap map path = Map.insertWith Set.union (FP.takeDirectory path) (Set.singleton path) map
+-}
+
+data Section = Section { path :: String, title :: String } deriving Eq
+
+instance Ord Section where
+  compare a b = compare (path a) (path b)
+
+mkSection :: FilePath -> Section
+mkSection path = Section { path = path, title = title }
+    where title = List.intercalate " > " $ filter (not . null) $ map extractTitle $ FP.splitDirectories $ Maybe.fromJust $ List.stripPrefix (siteRoot ++ "site") path
+
+-- makes the navbar from a list of html paths
+makeNav :: [String] -> String
+makeNav htmls = navFiles $ Map.mapKeys mkSection $ groupFilesWithTitles filesWithTitles
+    where filesWithTitles = map (\x -> (x, extractTitle x)) htmls
 
 settings :: IO WriterOptions
 settings = do
     template <- readFile "tutorial.html"
-    files <- filesList
-    let htmls :: [String] = catMaybes $ map mdToHtml files
-    let filesVars = map ( (,) "nav-files" ) htmls
-    let nav = navFiles $ map fileWithTitles htmls
-    return $ def { writerVariables = ("siteRoot", siteRoot) : ("nav", nav) : css ++ filesVars
+    files <- List.sort <$> filesList
+    let htmls :: [String] = Maybe.catMaybes $ map mdToHtml files
+    let nav = makeNav htmls
+    return $ def { writerVariables = ("siteRoot", siteRoot) : ("nav", nav) : css
           , writerStandalone = True
           , writerTemplate = template
           , writerHighlight = True
           , writerTableOfContents = True }
     where mdToHtml :: String -> Maybe String
           mdToHtml file = do
-            { f <- FSPath.stripPrefix (stringToFilePath "gen/") $ stringToFilePath file
-            ; return $ (++) (siteRoot++"site/") $ filePathToString $ flip FSPath.addExtension "html" $ FSPath.dropExtension f
+            { f <- List.stripPrefix "gen/" file
+            ; return $ siteRoot ++ "site/" ++ (FP.replaceExtension f "html")
             }
 
 filesList = unsafeInterleaveIO $ getRecursiveContents "gen"
@@ -97,17 +129,15 @@ siteRoot = "http://localhost:8000/"
 main = do
   files <- filesList
   forM_ files $ \file -> do
-    if ".md" `isSuffixOf` file
+    if ".md" `List.isSuffixOf` file
       then do
-        s <- readFile file
         putStrLn file
+        s <- readFile file
         html <- markdownToHtml s
-        let fileName = "../site" ++ (snd $ break (=='/') $ reverse $ snd $ break (=='.') $ reverse $ file) ++ "html"
+        let fileName = (++) "../site/" $ Maybe.fromJust $ List.stripPrefix "gen/" $ FP.replaceExtension file ".html"
         putStrLn fileName
-        let p = stringToFilePath fileName
-        let dir = filePathToString $ FSPath.directory p
-        putStrLn dir
+        let dir = FP.takeDirectory fileName
         createDirectoryIfMissing True dir
         withFile fileName WriteMode $ \h -> do
-          hPutStrLn h html
+          hPutStr h html
       else return ()

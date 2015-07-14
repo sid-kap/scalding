@@ -1,0 +1,382 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+  <meta http-equiv="Content-Style-Type" content="text/css"></meta>
+  <meta name="generator" content="pandoc"></meta>
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="http://localhost:8000/_src/css/bootstrap.min.css" type="text/css"></link>
+  <link rel="stylesheet" href="http://localhost:8000/_src/css/custom.css" type="text/css"></link>
+  <style type="text/css">
+    table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+      margin: 0; padding: 0; vertical-align: baseline; border: none; }
+    table.sourceCode { width: 100%; line-height: 100%; }
+    td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+    td.sourceCode { padding-left: 5px; }
+    code > span.kw { color: #007020; font-weight: bold; }
+    code > span.dt { color: #902000; }
+    code > span.dv { color: #40a070; }
+    code > span.bn { color: #40a070; }
+    code > span.fl { color: #40a070; }
+    code > span.ch { color: #4070a0; }
+    code > span.st { color: #4070a0; }
+    code > span.co { color: #60a0b0; font-style: italic; }
+    code > span.ot { color: #007020; }
+    code > span.al { color: #ff0000; font-weight: bold; }
+    code > span.fu { color: #06287e; }
+    code > span.er { color: #ff0000; font-weight: bold; }
+  </style>
+</head>
+<body>
+
+<div class="row">
+    <div class="container">
+        <div class="col-xs-4">
+            <img id="logo" src="http://localhost:8000//_src/scalding.png">
+        </div>
+    </div>
+</div>
+
+<div class="container">
+<div class="row">
+
+<div class="col-xs-3" role="navigation" id="nav-left">
+    
+    <ul class="nav nav-pills nav-stacked"><li role="presentation"><a href="http://localhost:8000/site/.Foo.md.html">.Foo.md</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/11.html"></a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/Home.html">Home</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/_Sidebar.html">_Sidebar</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/hello.html">hello</a>
+    </li>
+    </ul>
+    Tutorials > Beginner
+    <ul class="nav nav-pills nav-stacked"><li role="presentation"><a href="http://localhost:8000/site/01-Tutorials/01-Beginner/01-Getting-Started.html">Getting Started</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/01-Tutorials/01-Beginner/02-Alice-in-Wonderland.html">Alice in Wonderland</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/01-Tutorials/01-Beginner/03-Intro-to-Scalding-Jobs.html">Intro to Scalding Jobs</a>
+    </li>
+    </ul>
+    Tutorials > Intermediate
+    <ul class="nav nav-pills nav-stacked"><li role="presentation"><a href="http://localhost:8000/site/01-Tutorials/02-Intermediate/Aggregation-using-Algebird-Aggregators.html">Aggregation using Algebird Aggregators</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/01-Tutorials/02-Intermediate/SQL-to-Scalding.html">SQL to Scalding</a>
+    </li>
+    </ul>
+    Tutorials > Advanced
+    <ul class="nav nav-pills nav-stacked"><li role="presentation"><a href="http://localhost:8000/site/01-Tutorials/03-Advanced/Building-bigger-platforms-with-scalding.html">Building bigger platforms with scalding</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/01-Tutorials/03-Advanced/Introduction-to-Matrix-Library.html">Introduction to Matrix Library</a>
+    </li>
+    </ul>
+    Reference
+    <ul class="nav nav-pills nav-stacked"><li role="presentation"><a href="http://localhost:8000/site/02-Reference/API-Reference.html">API Reference</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/02-Reference/Calling-Scalding-from-Inside-Your-Application.html">Calling Scalding from Inside Your Application</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/02-Reference/Common-Exceptions-and-Possible-Reasons.html">Common Exceptions and Possible Reasons</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/02-Reference/Frequently-asked-questions.html">Frequently asked questions</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/02-Reference/Matrix-API-Reference.html">Matrix API Reference</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/02-Reference/Pig-to-Scalding.html">Pig to Scalding</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/02-Reference/REPL-Reference.html">REPL Reference</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/02-Reference/Rosetta-Code.html">Rosetta Code</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/02-Reference/Scald.rb.html">Scald.rb</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/02-Reference/Scalding-Commons.html">Scalding Commons</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/02-Reference/Scalding-HBase.html">Scalding HBase</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/02-Reference/Scalding-REPL.html">Scalding REPL</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/02-Reference/Scalding-Sources.html">Scalding Sources</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/02-Reference/Type-safe-api-reference.html">Type safe api reference</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/02-Reference/Using-scalding-with-other-versions-of-scala.html">Using scalding with other versions of scala</a>
+    </li>
+    </ul>
+    Reference > Fields API (Deprecated)
+    <ul class="nav nav-pills nav-stacked"><li role="presentation"><a href="http://localhost:8000/site/02-Reference/01-Fields-API-(Deprecated)/Fields-API:-reduce-functions-of-GroupBuilder.html">Fields API: reduce functions of GroupBuilder</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/02-Reference/01-Fields-API-(Deprecated)/Fields-based-API-Reference.html">Fields based API Reference</a>
+    </li>
+    </ul>
+    Other
+    <ul class="nav nav-pills nav-stacked"><li role="presentation"><a href="http://localhost:8000/site/03-Other/Comparison-to-Scrunch-and-Scoobi.html">Comparison to Scrunch and Scoobi</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/03-Other/Field-rules.html">Field rules</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/03-Other/Powered-By.html">Powered By</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/03-Other/Run-in-Intellij-IDEA.html">Run in Intellij IDEA</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/03-Other/Scala-and-sbt-for-Homebrew-users.html">Scala and sbt for Homebrew users</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/03-Other/Scala-and-sbt-for-MacPorts-users.html">Scala and sbt for MacPorts users</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/03-Other/Scalding-on-amazon-elastic-mapreduce.html">Scalding on amazon elastic mapreduce</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/03-Other/Scalding-with-CDH3U2-in-a-Maven-project.html">Scalding with CDH3U2 in a Maven project</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/03-Other/Upgrading-to-0.9.0.html">Upgrading to 0.9.0</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/03-Other/Using-the-distributed-cache.html">Using the distributed cache</a>
+    </li>
+    <li role="presentation"><a href="http://localhost:8000/site/03-Other/Why-pack-unpack-and-not--toList[].html">Why pack unpack and not  toList[]</a>
+    </li>
+    </ul>
+</div>
+
+<div class="col-xs-9 text-body">
+
+<div id="TOC">
+<ul>
+<li><a href="#value-operations">Value operations</a></li>
+<li><a href="#vector-operations">Vector operations</a></li>
+<li><a href="#matrix-operations">Matrix operations</a></li>
+<li><a href="#conversionfrom-functions">ConversionFrom functions</a></li>
+<li><a href="#conversionto-functions">ConversionTo functions</a></li>
+<li><a href="#other-functions">Other functions</a></li>
+<li><a href="#next-steps">Next steps</a></li>
+</ul>
+</div>
+<p>Matrix library functions can be divided into three types:</p>
+<ul>
+<li>Value operations</li>
+<li>Vector operations</li>
+<li>Matrix operations</li>
+</ul>
+<p>In addition, matrix library contains</p>
+<ul>
+<li>ConversionFrom functions</li>
+<li>ConversionTo functions</li>
+<li>Other functions</li>
+</ul>
+<h3 id="value-operations">Value operations</h3>
+<p>Value operations work over individual values in a matrix, usually transforming them in some way.</p>
+<h4 id="mat.mapvalues-mapping-function-matrix">mat.mapValues( <em>mapping function</em> ): Matrix</h4>
+<p>Maps the values of the matrix to new values using a function</p>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="co">// The new matrix contains the elements from the original matrix multiplied by 2</span>
+<span class="kw">val</span> doubledMatrix = matrix.<span class="fu">mapValues</span>{ value : Int => value * <span class="dv">2</span> }</code></pre>
+<h4 id="mat.filtervalues-filter-function-matrix">mat.filterValues( <em>filter function</em> ): Matrix</h4>
+<p>Keep only the values of the matrix that set the function to true</p>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="co">// The new matrix contains only the positive elements from the matrix</span>
+<span class="kw">val</span> filteredMatrix = matrix.<span class="fu">filterValues</span>{ _ > <span class="dv">0</span> }</code></pre>
+<h4 id="mat.binarizeasnewvalt-matrix">mat.binarizeAs[NewValT]: Matrix</h4>
+<p>Sets all of the non-zero values of the matrix to the one element of the type</p>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="co">// The new matrix contains ones as integers for all non-zero values from the matrix</span>
+<span class="kw">val</span> binMatrix = matrix.<span class="fu">binarizeAs</span>[Int]</code></pre>
+<h3 id="vector-operations">Vector operations</h3>
+<p>Vectors are represented as pipes of pairs of indexes and values. There are two classes of vectors, one for row and one for column vectors respectively. Objects from the two classes can convert to one another through <code>vector.transpose</code> and to a two-dimensional matrix using <code>vector.toMatrix</code> or <code>vector.diag</code>.</p>
+<h4 id="rowvector-operations">RowVector operations</h4>
+<h4 id="mat.getrow-rownumber-rowvector">mat.getRow( rowNumber ): RowVector</h4>
+<p>Returns the row indexed with the specified value from the original matrix</p>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="co">// Returns the 3rd row from the matrix</span>
+<span class="kw">val</span> row = matrix.<span class="fu">getRow</span>(<span class="dv">3</span>)
+<span class="co">// Returns the row from the matrix that is indexed with “France”</span>
+<span class="kw">val</span> row = matrix.<span class="fu">getRow</span>(<span class="st">"France"</span>)</code></pre>
+<h4 id="matrix.reducerowvectors-reduce-function-rowvector">matrix.reduceRowVectors( <em>reduce function</em> ): RowVector</h4>
+<p>Reduces all row vectors into a single row vector using a associative pairwise aggregation function</p>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="co">// Produces a row vector containing the products of each column's values</span>
+<span class="co">// matrix = 1 1 1</span>
+<span class="co">//          2 2 1</span>
+<span class="co">//          3 0 1</span>
+<span class="co">// rowProd = 6 0 1</span>
+<span class="kw">val</span> rowProd = matrix.<span class="fu">reduceRowVectors</span> { (x,y) => x * y }</code></pre>
+<h4 id="matrix.sumrowvectors-rowvector">matrix.sumRowVectors: RowVector</h4>
+<p>Reduces all row vectors into the sum row vector</p>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="co">// Returns the row vector of all per-column sums</span>
+<span class="co">//      101   102</span>
+<span class="co">//    -------------</span>
+<span class="co">//  1 |  1       2</span>
+<span class="co">//  2 |          1</span>
+<span class="co">//  3 |  3       5</span>
+
+<span class="kw">val</span> rowSum = matrix.<span class="fu">sumRowVectors</span>
+
+<span class="co">// rowSum (a 1x2 vector) is</span>
+<span class="co">//  101  102</span>
+<span class="co">// --------</span>
+<span class="co">// | 4    8</span></code></pre>
+<h4 id="matrix.maprows-mapping-function-matrix">matrix.mapRows( <em>mapping function</em> ): Matrix</h4>
+<p>Maps each of the row vectors into a new row vector using a function over the list of non-zero elements in the original rows</p>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="co">// Returns the mean-centered rows of the original matrix</span>
+<span class="kw">val</span> rowSum = matrix.<span class="fu">mapRows</span>{ meanCenter }
+<span class="kw">def</span> meanCenter[T](vct: Iterable[(T,Double)]) : Iterable[(T,Double)] = {
+    <span class="kw">val</span> valList = vct.<span class="fu">map</span> { _.<span class="fu">_2</span> }
+    <span class="kw">val</span> sum = valList.<span class="fu">sum</span>
+    <span class="kw">val</span> count = valList.<span class="fu">size</span>
+    <span class="kw">val</span> avg = sum / count
+    vct.<span class="fu">map</span> { tup => (tup.<span class="fu">_1</span>, tup.<span class="fu">_2</span> - avg) }
+}</code></pre>
+<h4 id="matrix.toprowelems-numberofelements-matrix">matrix.topRowElems( numberOfElements ): Matrix</h4>
+<p>Returns the matrix containing only the top K greatest elements in each row as specified by the type-specific comparator. The new matrix pipe has the elements sorted in decreasing order per row key.</p>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="co">// Returns the matrix with top 10 elements</span>
+<span class="co">// Given a matrix:</span>
+<span class="co">// matrix =     jim apple       3</span>
+                jim orange      <span class="dv">6</span>
+                jim banana     <span class="dv">10</span>
+                jim grapefruit  <span class="dv">4</span>
+                bob apple       <span class="dv">7</span>
+                bob orange      <span class="dv">0</span>
+                bob banana      <span class="dv">1</span>
+                bob grapefruit  <span class="dv">3</span>
+
+<span class="co">// topkMatrix = jim banana    10</span>
+                jim orange     <span class="dv">6</span>
+                bob apple      <span class="dv">7</span>
+                bob grapefruit <span class="dv">3</span>
+<span class="kw">val</span> topkMatrix = matrix.<span class="fu">topRowElems</span>(<span class="dv">2</span>)</code></pre>
+<h4 id="matrix.rowl1normalize-matrix">matrix.rowL1Normalize: Matrix</h4>
+<p>Returns the matrix containing the L1 row-normalized elements of the original matrix</p>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="co">// Returns the adjacency matrix of the follow graph normalized by outdegree</span>
+<span class="co">// matrix = 1 0 1</span>
+<span class="co">//          1 1 1</span>
+<span class="co">//          1 0 0</span>
+<span class="co">// matrixL1Norm = 0.5 0 0.5</span>
+<span class="co">//                0.33 0.33 0.33</span>
+<span class="co">//                1 0 0</span>
+<span class="kw">val</span> matrixL1Norm = matrix.<span class="fu">rowL1Normalize</span></code></pre>
+<h4 id="matrix.rowl2normalize-matrix">matrix.rowL2Normalize: Matrix</h4>
+<p>Returns the matrix containing the L2 row-normalized elements of the original matrix</p>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="co">// Returns the adjacency matrix of the follow graph normalized by outdegree</span>
+<span class="co">// matrix = 3 0 4</span>
+<span class="co">//          0 0 0</span>
+<span class="co">//          2 0 0</span>
+<span class="co">// matrixL2Norm = 0.6 0 0.8</span>
+<span class="co">//                0   0 0</span>
+<span class="co">//                1   0 0</span>
+<span class="kw">val</span> matrixL2Norm = matrix.<span class="fu">rowL2Normalize</span></code></pre>
+<h4 id="matrix.rowmeancentering-matrix">matrix.rowMeanCentering: Matrix</h4>
+<p>Returns the matrix containing the row-mean centered elements of the original matrix, by computing the mean per each row and substracting it from the row elements, such that the original mean value is now zero. (the code is shown above in the mapRows example)</p>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="co">// Substracts all of the row-wise means from all the elements</span>
+<span class="kw">val</span> matrixCentered = matrix.<span class="fu">rowMeanCentering</span></code></pre>
+<h4 id="matrix.rowsizeavestdev-matrix">matrix.rowSizeAveStdev: Matrix</h4>
+<p>Computes the row size, average and standard deviation returning a new kx3 matrix where each row is mapped to the 3 values.</p>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="co">// Computes the row stats</span>
+<span class="co">// TODO: add example</span>
+<span class="kw">val</span> matrixRowStats = matrix.<span class="fu">rowSizeAveStdev</span>
+<span class="kw">def</span> rowColValSymbols : List[Symbol] = List(rowSym, colSym, valSym)</code></pre>
+<h4 id="colvector-operations">ColVector operations</h4>
+<p>Column vector operations are similar to the row vector ones, where all function names are renamed from row to col and the return type is in general ColVector.</p>
+<h3 id="matrix-operations">Matrix operations</h3>
+<h4 id="matrix1-matrix2-matrix">matrix1 * matrix2: Matrix</h4>
+<p>Computes the product of two matrices</p>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="co">// Computes the product of two matrices</span>
+<span class="kw">val</span> matrixProd = matrix1 * matrix2</code></pre>
+<h4 id="matrix-scalarliteralscalar-matrix">matrix / scalar(LiteralScalar): Matrix</h4>
+<p>Computes the element-wise division of a matrix by a scalar</p>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="co">// Computes the element-wise division of a matrix by 100</span>
+<span class="kw">val</span> matrixDiv = matrix / <span class="dv">100</span></code></pre>
+<h4 id="matrix1.elemwiseopmatrix2-function">matrix1.elemWiseOp(matrix2){ <em>function</em> }</h4>
+<p>Computes the element-wise merging of two matrices</p>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="co">// Computes the element-wise division of a matrix by another</span>
+matrix1.<span class="fu">elemWiseOp</span>(matrix2)((x,y) => x/y)</code></pre>
+<h4 id="matrix1-matrix2-matrix-1">matrix1 + matrix2: Matrix</h4>
+<p>Computes the sum of two matrices</p>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="co">// Computes the sum of two matrices</span>
+matrixSum = matrix1 + matrix2</code></pre>
+<h4 id="matrix1---matrix2-matrix">matrix1 - matrix2: Matrix</h4>
+<p>Computes the difference between two matrices</p>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="co">// Computes the difference between two matrices</span>
+matrixDiff = matrix1 - matrix2</code></pre>
+<h4 id="matrix1.hprodmatrix2-matrix">matrix1.hProd(matrix2): Matrix</h4>
+<p>Computes the element-wise product of two matrices</p>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="co">// Computes the element-wise product of two matrices</span>
+matrixProd = matrix1.<span class="fu">hProd</span>( matrix2 )</code></pre>
+<h4 id="matrix1.zip-matrix2rowcolumn-matrix">matrix1.zip( matrix2/row/column ): Matrix</h4>
+<p>Merges the elements of the two matrices creating a matrix that has as values the pair tuples. Similarly, when zipping a matrix with a row or a vector, it zips the values of the row/column across all of the rows/columns of the matrix. The resulting value type is a pair tuple that has defined a Monoid trait.</p>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="co">// Returns the matrix with elements of the type ( 0, elem2), ( elem1, 0) and (elem1, elem2)</span>
+<span class="co">// matrix = 0 1 1</span>
+<span class="co">//          1 2 0</span>
+<span class="co">// rowVct = 1 0 1</span>
+<span class="co">// matrixVctPairs = (0, 1) (1, 0) (1, 1)</span>
+<span class="co">//                  (1, 1) (2, 0) (0, 1)</span>
+matrixPairs = matrix1.<span class="fu">zip</span>( matrix2 )
+matrixVctPairs = matrix.<span class="fu">zip</span> ( rowVct )</code></pre>
+<h4 id="matrix.nonzeroswithscalar">matrix.nonZerosWith(Scalar)</h4>
+<p>Zips the scalar on the right with all non-zeros in this matrix</p>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="co">// Similar to zip, but combine the scalar on the right with all non-zeros in this matrix:</span>
+matrixProd = matrix1.<span class="fu">nonZerosWith</span>( <span class="dv">100</span> )</code></pre>
+<h4 id="matrix.trace-scalar">matrix.trace: Scalar</h4>
+<p>Computes the trace of a matrix that is equal to the sum of the diagonal values of the matrix.</p>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="co">// Computes the trace of a matrix</span>
+trace = matrix.<span class="fu">trace</span></code></pre>
+<h4 id="matrix.sum-scalar">matrix.sum: Scalar</h4>
+<p>Computes the sum of the elements of a matrix</p>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="co">// Computes the sum of the elements of a matrix</span>
+sum = matrix.<span class="fu">sum</span></code></pre>
+<h4 id="matrix.transpose-matrix">matrix.transpose: Matrix</h4>
+<p>Computes the transpose of the matrix</p>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="co">// Computes the transpose of the matrix</span>
+matrixTranspose = matrix.<span class="fu">transpose</span></code></pre>
+<h4 id="matrix.diagonal-diagonalmatrix">matrix.diagonal: DiagonalMatrix</h4>
+<p>Returns the diagonal of the matrix</p>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="co">// Returns the diagonal of the matrix</span>
+matrixDiag = matrix.<span class="fu">diagonal</span></code></pre>
+<h3 id="conversionfrom-functions">ConversionFrom functions</h3>
+<h4 id="pipeextensions">PipeExtensions</h4>
+<h4 id="pipe.tomatrixfield-matrix">pipe.toMatrix(field ): Matrix</h4>
+<p>Constructs a matrix from a pipe.</p>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="co">// The matrix will contain all of the data from the pipe and will have the names of the row, column and value dimensions ‘row, ‘col and ‘val. Again, the row and column types do not have to be numeric.</span>
+<span class="kw">val</span> matrix = pipe.<span class="fu">toMatrix</span>(‘row,’col,’val)</code></pre>
+<h4 id="pipe.maptomatrixfields-mapping-function-matrix">pipe.mapToMatrix(fields)( <em>mapping function</em> ): Matrix</h4>
+<p>Constructs a matrix from a pipe by applying first a mapping function</p>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="co">// The new pipe contains all of the triples data in matrix with squared values</span>
+<span class="kw">val</span> matrix = pipe.<span class="fu">mapToMatrix</span>(‘a, ‘b, ‘c){ (x, y, z) => (x, y, z * z) }</code></pre>
+<h4 id="pipe.flatmaptomatrixfields-mapping-function-matrix">pipe.flatMapToMatrix(fields)( <em>mapping function</em> ): Matrix</h4>
+<p>Constructs a matrix from a pipe by applying first a mapping function</p>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="co">// The new pipe contains all of the triples data in matrix with log-values</span>
+<span class="kw">val</span> matrix = pipe.<span class="fu">flatMapToMatrix</span>( ‘a, ‘b, ‘c){ (x, y, z) => (x, y, scala.<span class="fu">math</span>.<span class="fu">log</span>(z)) }</code></pre>
+<h4 id="companion-object-methods">Companion object methods</h4>
+<h3 id="conversionto-functions">ConversionTo functions</h3>
+<h4 id="matrix.pipe-richpipe">matrix.pipe: RichPipe</h4>
+<p>Returns the pipe associated with the matrix. The pipe contains tuples of the three (row,column,value) elements that can be accessed either using the field names or by using the Matrix class variables matrix.rowSym, matrix.colSym, matrix.valSym.</p>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="co">// The new pipe contains all of the triples data in matrix</span>
+<span class="kw">val</span> newPipe = matrix.<span class="fu">pipe</span></code></pre>
+<h4 id="matrix.pipeastofields-richpipe">matrix.pipeAs(toFields): RichPipe</h4>
+<p>Returns the matrix pipe with the fields renamed</p>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="co">// The new pipe contains all of the triples data in matrix renamed to ('user,'movie,'similarity)</span>
+<span class="kw">val</span> pipeFields = matrix.<span class="fu">pipeAs</span>( ‘user, ‘movie, ‘similarity)</code></pre>
+<h4 id="matrix.writesrc-outfields-matrix">matrix.write(src, outFields): Matrix</h4>
+<p>Writes to a sink and returns the matrix data for further processing.</p>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="co">// Writes to a sink and returns the matrix data for further processing.</span>
+matrix.<span class="fu">write</span>( <span class="fu">Tsv</span>(<span class="st">"output"</span>) )</code></pre>
+<h3 id="other-functions">Other functions</h3>
+<h4 id="matrix.fields-listsymbol">matrix.fields: List[Symbol]</h4>
+<p>Returns the list of the fields of the pipe associated with the matrix: matrix.rowSym, matrix.colSym, matrix.valSym.</p>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="co">// The new pipe contains all of the triples data in matrix</span>
+<span class="kw">val</span> pipeFields = matrix.<span class="fu">fields</span></code></pre>
+<h4 id="matrix.withsizehint-matrix">matrix.withSizeHint: Matrix</h4>
+<p>Adds a SizeHint to the matrix. The size hint specifies the approximate value of the dimensions of the matrix and impacts the type of joins that. If set to true, the skewness flag triggers an additional split of the data over a set of random keys to evenly distribute the computation.</p>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="co">// The new matrix has a new SizeHint specifying that there are around 1000 rows, 4000 columns, 1000 non-zeroes and that there is a skew of the values over the indexes.</span>
+<span class="kw">val</span> newMatrix = matrix.<span class="fu">withSizeHint</span>( <span class="dv">1000</span>, <span class="dv">4000</span>, <span class="dv">1000</span>, <span class="kw">true</span> )</code></pre>
+<h4 id="matrix.hashint-sizehint">matrix.hasHint: SizeHint</h4>
+<p>Returns true if the matrix has a size hint.</p>
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="co">// Check if the matrix has a sizeHint set.</span>
+<span class="kw">if</span> (!matrix.<span class="fu">hasHint</span>) matrix.<span class="fu">withSizeHint</span>(newHint)</code></pre>
+<h3 id="next-steps">Next steps</h3>
+<h4 id="looking-for-the-introduction-or-the-tutorials-here-are-the-links">Looking for the introduction or the tutorials? Here are the links:</h4>
+<ul>
+<li><a href="https://github.com/twitter/scalding/wiki/Introduction-to-Matrix-Library">Introduction to Matrix library</a></li>
+<li><a href="https://github.com/twitter/scalding/tree/master/tutorial">Matrix tutorials</a></li>
+</ul>
+
+</div>
+
+</div>
+</div>
+
+</body>
+</html>

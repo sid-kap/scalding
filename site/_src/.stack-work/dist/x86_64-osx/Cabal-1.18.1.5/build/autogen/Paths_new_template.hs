@@ -17,9 +17,9 @@ version :: Version
 version = Version {versionBranch = [0,1,0,0], versionTags = []}
 bindir, libdir, datadir, libexecdir, sysconfdir :: FilePath
 
-bindir     = "/Users/skapur/google-drive/workspace/site/_src/.stack-work/install/x86_64-osx/lts-2.17/7.8.4/bin"
-libdir     = "/Users/skapur/google-drive/workspace/site/_src/.stack-work/install/x86_64-osx/lts-2.17/7.8.4/lib/x86_64-osx-ghc-7.8.4/new-template-0.1.0.0"
-datadir    = "/Users/skapur/google-drive/workspace/site/_src/.stack-work/install/x86_64-osx/lts-2.17/7.8.4/share/x86_64-osx-ghc-7.8.4/new-template-0.1.0.0"
+bindir     = "/Users/skapur/google-drive/workspace/clones/scalding/site/_src/.stack-work/install/x86_64-osx/lts-2.17/7.8.4/bin"
+libdir     = "/Users/skapur/google-drive/workspace/clones/scalding/site/_src/.stack-work/install/x86_64-osx/lts-2.17/7.8.4/lib/x86_64-osx-ghc-7.8.4/new-template-0.1.0.0"
+datadir    = "/Users/skapur/google-drive/workspace/clones/scalding/site/_src/.stack-work/install/x86_64-osx/lts-2.17/7.8.4/share/x86_64-osx-ghc-7.8.4/new-template-0.1.0.0"
 libexecdir = "/Users/skapur/.cabal/libexec"
 sysconfdir = "/Users/skapur/.cabal/etc"
 

@@ -9,7 +9,7 @@
 		extra-scalaVersion="2.10"
 		conf="test"
 		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool"
-		date="20150713102544"/>
+		date="20150713170057"/>
 	<dependencies>
 		<module organisation="org.tpolecat" name="tut-plugin">
 			<revision name="0.4.0" status="release" pubdate="20150624220906" resolver="sbt-chain" artresolver="sbt-chain" extra-sbtVersion="0.13" extra-scalaVersion="2.10" downloaded="false" searched="false" default="false" conf="default(compile), compile" position="0">

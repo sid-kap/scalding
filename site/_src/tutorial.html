@@ -15,14 +15,14 @@ $endif$
 $if(quotes)$
   <style type="text/css">q { quotes: "“" "”" "‘" "’"; }</style>
 $endif$
-$if(highlighting-css)$
-  <style type="text/css">
-$highlighting-css$
-  </style>
-$endif$
 $for(css)$
   <link rel="stylesheet" href="$css$" $if(html5)$$else$type="text/css" $endif$/>
 $endfor$
+$if(highlighting-css)$
+  <style type="text/css">
+    $highlighting-css$
+  </style>
+$endif$
 $if(math)$
   $math$
 $endif$
@@ -44,10 +44,7 @@ $endfor$
 <div class="row">
 
 <div class="col-xs-3" role="navigation" id="nav-left">
-<ul class="nav nav-pills nav-stacked">
     $nav$
-    <li role="presentation" class="active"><a href="#">$title$</a></li>
-</ul>
 </div>
 
 <div class="col-xs-9 text-body">

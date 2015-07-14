@@ -4,7 +4,7 @@
 		module="root-_src_2.10"
 		revision="0.1-SNAPSHOT"
 		status="integration"
-		publication="20150713102557"
+		publication="20150713170233"
 	>
 		<description>
 		root-_src
@@ -32,8 +32,8 @@
 		<artifact name="root-_src_2.10" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
 	</publications>
 	<dependencies>
-		<dependency org="org.scala-lang" name="scala-compiler" rev="2.10.4" conf="scala-tool->default,optional(default)"/>
-		<dependency org="org.scala-lang" name="scala-library" rev="2.10.4" conf="scala-tool->default,optional(default);compile->default(compile)"/>
+		<dependency org="org.scala-lang" name="scala-compiler" rev="2.10.5" conf="scala-tool->default,optional(default)"/>
+		<dependency org="org.scala-lang" name="scala-library" rev="2.10.5" conf="scala-tool->default,optional(default);compile->default(compile)"/>
 		<dependency org="com.twitter" name="scalding-core_2.10" rev="0.15.0" conf="compile->default(compile)"/>
 		<dependency org="com.twitter" name="scalding-repl_2.10" rev="0.15.0" conf="compile->default(compile)"/>
 		<dependency org="org.apache.hadoop" name="hadoop-core" rev="1.2.1" conf="compile->default(compile)"/>

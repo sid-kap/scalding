@@ -7,15 +7,15 @@
 		revision="0.1-SNAPSHOT"
 		conf="compile"
 		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool"
-		date="20150713102557"/>
+		date="20150713170233"/>
 	<dependencies>
 		<module organisation="com.twitter" name="scalding-repl_2.10">
-			<revision name="0.15.0" status="release" pubdate="20150521161328" resolver="public" artresolver="public" homepage="https://github.com/twitter/scalding" downloaded="true" searched="true" default="false" conf="default(compile), default, compile, runtime, master" position="27">
+			<revision name="0.15.0" status="release" pubdate="20150521161328" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/twitter/scalding" downloaded="false" searched="false" default="false" conf="default(compile), default, compile, runtime, master" position="27">
 				<license name="Apache 2" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
-				<metadata-artifact status="successful" details="" size="3705" time="155" location="/Users/skapur/.ivy2/cache/com.twitter/scalding-repl_2.10/ivy-0.15.0.xml" searched="true" original-local-location="/Users/skapur/.ivy2/cache/com.twitter/scalding-repl_2.10/ivy-0.15.0.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/twitter/scalding-repl_2.10/0.15.0/scalding-repl_2.10-0.15.0.pom"/>
+				<metadata-artifact status="no" details="" size="3883" time="0" location="/Users/skapur/.ivy2/cache/com.twitter/scalding-repl_2.10/ivy-0.15.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/twitter/scalding-repl_2.10/0.15.0/scalding-repl_2.10-0.15.0.pom"/>
 				<caller organisation="default" name="root-_src_2.10" conf="compile" rev="0.15.0" rev-constraint-default="0.15.0" rev-constraint-dynamic="0.15.0" callerrev="0.1-SNAPSHOT"/>
 				<artifacts>
-					<artifact name="scalding-repl_2.10" type="jar" ext="jar" status="successful" details="" size="39799" time="162" location="/Users/skapur/.ivy2/cache/com.twitter/scalding-repl_2.10/jars/scalding-repl_2.10-0.15.0.jar">
+					<artifact name="scalding-repl_2.10" type="jar" ext="jar" status="no" details="" size="39799" time="0" location="/Users/skapur/.ivy2/cache/com.twitter/scalding-repl_2.10/jars/scalding-repl_2.10-0.15.0.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/twitter/scalding-repl_2.10/0.15.0/scalding-repl_2.10-0.15.0.jar"/>
 					</artifact>
 				</artifacts>
@@ -59,7 +59,7 @@
 			</revision>
 		</module>
 		<module organisation="com.twitter" name="scalding-core_2.10">
-			<revision name="0.15.0" status="release" pubdate="20150521161249" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/twitter/scalding" downloaded="false" searched="false" default="false" conf="default(compile), default, compile, compile(*), runtime, runtime(*), master(compile), master" position="0">
+			<revision name="0.15.0" status="release" pubdate="20150521161249" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/twitter/scalding" downloaded="false" searched="false" default="false" conf="default(compile), default, compile, compile(*), runtime, runtime(*), master(compile), master" position="1">
 				<license name="Apache 2" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
 				<metadata-artifact status="no" details="" size="5201" time="0" location="/Users/skapur/.ivy2/cache/com.twitter/scalding-core_2.10/ivy-0.15.0.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/com/twitter/scalding-core_2.10/0.15.0/scalding-core_2.10-0.15.0.pom"/>
 				<caller organisation="com.twitter" name="scalding-repl_2.10" conf="default, compile, runtime, master" rev="0.15.0" rev-constraint-default="0.15.0" rev-constraint-dynamic="0.15.0" callerrev="0.15.0"/>
@@ -976,7 +976,7 @@
 			</revision>
 		</module>
 		<module organisation="org.scala-lang" name="scala-library">
-			<revision name="2.10.5" status="release" pubdate="20150226175430" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.scala-lang.org/" extra-info.apiURL="http://www.scala-lang.org/api/2.10.5/" downloaded="false" searched="false" default="false" conf="default(compile), default, compile, master(*), runtime, compile(*), runtime(*), master(compile), master" position="1">
+			<revision name="2.10.5" status="release" pubdate="20150226175430" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.scala-lang.org/" extra-info.apiURL="http://www.scala-lang.org/api/2.10.5/" downloaded="false" searched="false" default="false" conf="default(compile), default, compile, master(*), compile(*), runtime, runtime(*), master(compile), master" position="0">
 				<license name="BSD-like" url="http://www.scala-lang.org/downloads/license.html          "/>
 				<metadata-artifact status="no" details="" size="2669" time="0" location="/Users/skapur/.ivy2/cache/org.scala-lang/scala-library/ivy-2.10.5.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-lang/scala-library/2.10.5/scala-library-2.10.5.pom"/>
 				<caller organisation="com.twitter" name="bijection-core_2.10" conf="compile, runtime" rev="2.10.5" rev-constraint-default="2.10.5" rev-constraint-dynamic="2.10.5" callerrev="0.8.0"/>
@@ -990,19 +990,11 @@
 				<caller organisation="com.twitter" name="scalding-repl_2.10" conf="default, compile, runtime, master" rev="2.10.5" rev-constraint-default="2.10.5" rev-constraint-dynamic="2.10.5" callerrev="0.15.0"/>
 				<caller organisation="org.scala-lang" name="scala-reflect" conf="compile, runtime" rev="2.10.5" rev-constraint-default="2.10.5" rev-constraint-dynamic="2.10.5" callerrev="2.10.5"/>
 				<caller organisation="com.twitter" name="scalding-date_2.10" conf="compile, runtime" rev="2.10.5" rev-constraint-default="2.10.5" rev-constraint-dynamic="2.10.5" callerrev="0.15.0"/>
-				<caller organisation="default" name="root-_src_2.10" conf="compile" rev="2.10.4" rev-constraint-default="2.10.4" rev-constraint-dynamic="2.10.4" callerrev="0.1-SNAPSHOT"/>
+				<caller organisation="default" name="root-_src_2.10" conf="compile" rev="2.10.5" rev-constraint-default="2.10.5" rev-constraint-dynamic="2.10.5" callerrev="0.1-SNAPSHOT"/>
 				<artifacts>
 					<artifact name="scala-library" type="jar" ext="jar" status="no" details="" size="7130772" time="0" location="/Users/skapur/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.10.5.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-lang/scala-library/2.10.5/scala-library-2.10.5.jar"/>
 					</artifact>
-				</artifacts>
-			</revision>
-			<revision name="2.10.4" status="release" pubdate="20140318144629" resolver="sbt-chain" artresolver="sbt-chain" evicted="latest-revision" evicted-reason="" homepage="http://www.scala-lang.org/" extra-info.apiURL="http://www.scala-lang.org/api/2.10.4/" downloaded="false" searched="false" default="false" conf="default(compile), default, compile, runtime, master" position="-1">
-				<license name="BSD-like" url="http://www.scala-lang.org/downloads/license.html          "/>
-				<metadata-artifact status="no" details="" size="2487" time="0" location="/Users/skapur/.ivy2/cache/org.scala-lang/scala-library/ivy-2.10.4.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-lang/scala-library/2.10.4/scala-library-2.10.4.pom"/>
-				<evicted-by rev="2.10.5"/>
-				<caller organisation="default" name="root-_src_2.10" conf="compile" rev="2.10.4" rev-constraint-default="2.10.4" rev-constraint-dynamic="2.10.4" callerrev="0.1-SNAPSHOT"/>
-				<artifacts>
 				</artifacts>
 			</revision>
 		</module>

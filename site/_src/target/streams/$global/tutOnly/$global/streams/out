@@ -1,10 +1,11 @@
-[0m[[0minfo[0m] [0mRunning tut.TutMain /Users/skapur/google-drive/workspace/site/_src/src/Common-Exceptions-and-possible-reasons.md /Users/skapur/google-drive/workspace/site/_src/gen .*\.(md|txt|htm|html)[0m
+[0m[[0minfo[0m] [0mRunning tut.TutMain /Users/skapur/google-drive/workspace/clones/scalding/site/_src/src/Tutorials/01-Beginner/02-Alice-in-Wonderland.md /Users/skapur/google-drive/workspace/clones/scalding/site/_src/gen/Tutorials/01-Beginner .*\.(md|txt|htm|html)[0m
 [0m[[0mdebug[0m] [0mWaiting for threads to exit or System.exit to be called.[0m
+[0m[[0mdebug[0m] [0mWaiting for thread run-main-2 to terminate.[0m
 [0m[[0mdebug[0m] [0m  Classpath:[0m
-[0m[[0mdebug[0m] [0m	/Users/skapur/google-drive/workspace/site/_src/target/scala-2.10/test-classes[0m
-[0m[[0mdebug[0m] [0m	/Users/skapur/google-drive/workspace/site/_src/target/scala-2.10/classes[0m
-[0m[[0mdebug[0m] [0m	/Users/skapur/.ivy2/cache/com.twitter/scalding-core_2.10/jars/scalding-core_2.10-0.15.0.jar[0m
+[0m[[0mdebug[0m] [0m	/Users/skapur/google-drive/workspace/clones/scalding/site/_src/target/scala-2.10/test-classes[0m
+[0m[[0mdebug[0m] [0m	/Users/skapur/google-drive/workspace/clones/scalding/site/_src/target/scala-2.10/classes[0m
 [0m[[0mdebug[0m] [0m	/Users/skapur/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.10.5.jar[0m
+[0m[[0mdebug[0m] [0m	/Users/skapur/.ivy2/cache/com.twitter/scalding-core_2.10/jars/scalding-core_2.10-0.15.0.jar[0m
 [0m[[0mdebug[0m] [0m	/Users/skapur/.ivy2/cache/com.twitter/scalding-args_2.10/jars/scalding-args_2.10-0.15.0.jar[0m
 [0m[[0mdebug[0m] [0m	/Users/skapur/.ivy2/cache/com.twitter/scalding-date_2.10/jars/scalding-date_2.10-0.15.0.jar[0m
 [0m[[0mdebug[0m] [0m	/Users/skapur/.ivy2/cache/com.twitter/scalding-serialization_2.10/jars/scalding-serialization_2.10-0.15.0.jar[0m
@@ -79,8 +80,13 @@
 [0m[[0mdebug[0m] [0m	/Users/skapur/.ivy2/cache/org.codehaus.jackson/jackson-mapper-asl/jars/jackson-mapper-asl-1.8.8.jar[0m
 [0m[[0mdebug[0m] [0m	/Users/skapur/.ivy2/cache/org.codehaus.jackson/jackson-core-asl/jars/jackson-core-asl-1.8.8.jar[0m
 [0m[[0mdebug[0m] [0m	/Users/skapur/.ivy2/cache/org.tpolecat/tut-core_2.10/jars/tut-core_2.10-0.4.0.jar[0m
-[0m[[0mdebug[0m] [0mWaiting for thread run-main-10 to terminate.[0m
-[0m[[0mdebug[0m] [0m	Thread run-main-10 exited.[0m
+[0m[[0mdebug[0m] [0m	Thread run-main-2 exited.[0m
 [0m[[0mdebug[0m] [0mInterrupting remaining threads (should be all daemons).[0m
+[0m[[0mdebug[0m] [0mInterrupting thread Thread-15[0m
+[0m[[0mdebug[0m] [0m	Interrupted Thread-15[0m
+[0m[[0mdebug[0m] [0mInterrupting thread UpdateRequestTimer[0m
+[0m[[0mdebug[0m] [0m	Interrupted UpdateRequestTimer[0m
+[0m[[0mdebug[0m] [0mInterrupting thread cascading shutdown hooks[0m
+[0m[[0mdebug[0m] [0m	Interrupted cascading shutdown hooks[0m
 [0m[[0mdebug[0m] [0mSandboxed run complete..[0m
 [0m[[0mdebug[0m] [0mExited with code 0[0m
