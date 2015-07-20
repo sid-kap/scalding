@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
   <meta http-equiv="Content-Style-Type" content="text/css"></meta>
   <meta name="generator" content="pandoc"></meta>
-  <title></title>
+  <title>Aggregation using Algebird Aggregators</title>
   <style type="text/css">code{white-space: pre;}</style>
   <link rel="stylesheet" href="http://localhost:8000/_src/css/bootstrap.min.css" type="text/css"></link>
   <link rel="stylesheet" href="http://localhost:8000/_src/css/custom.css" type="text/css"></link>
@@ -138,19 +138,21 @@
     </ul>
 </div>
 
-<div class="col-xs-9 text-body">
+<div class="col-xs-0 col-md-1"></div>
 
+<div class="col-xs-9 col-md-8 text-body">
+
+<div id="header">
+<h1 class="title">Aggregation using Algebird Aggregators</h1>
+</div>
 <div id="TOC">
 <ul>
-<li><a href="#aggregators">Aggregators</a><ul>
 <li><a href="#examples">Examples</a></li>
-</ul></li>
 </ul>
 </div>
-<h2 id="aggregators">Aggregators</h2>
 <p>For this tutorial, you need to be using Algebird 0.7.2, 0.8.2 or 0.9 or later. You may need to update your build file (prefer 0.7.2 if you are on scalding 0.11 or scalding 0.12). Scalding 0.13+ comes with algebird 0.9 already.</p>
 <p>Aggregators enable creation of reusable and composable aggregation functions. There are three main functions on Aggregator trait.</p>
-<pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">trait</span> Aggregator[-A, B, +C]  { 
+<pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">trait</span> Aggregator[-A, B, +C]  {
   <span class="co">/**</span>
 <span class="co">   * Transform the input before the reduction.</span>
 <span class="co">   */</span>
@@ -158,7 +160,7 @@
    <span class="co">/**</span>
 <span class="co">   * Combine two values to produce a new value.</span>
 <span class="co">   */</span>
-  <span class="kw">def</span> <span class="fu">reduce</span>(l: B, r: B): B 
+  <span class="kw">def</span> <span class="fu">reduce</span>(l: B, r: B): B
   <span class="co">/**</span>
 <span class="co">   * Transform the output of the reduction.</span>
 <span class="co">   */</span>
@@ -228,7 +230,7 @@
 </tr>
 </tbody>
 </table>
-<pre class="sourceCode scala"><code class="sourceCode scala"> <span class="kw">case</span> <span class="kw">class</span> <span class="fu">Order</span>(orderId: Int, orderDate: String, orderPrice: Long, orderQuantity: Long, 
+<pre class="sourceCode scala"><code class="sourceCode scala"> <span class="kw">case</span> <span class="kw">class</span> <span class="fu">Order</span>(orderId: Int, orderDate: String, orderPrice: Long, orderQuantity: Long,
                   customerName: String)
 
  <span class="kw">val</span> orders = List(
@@ -263,7 +265,7 @@ TypedPipe.<span class="fu">from</span>(orders)
 <pre class="sourceCode sql"><code class="sourceCode sql">SQL:
 <span class="kw">Select</span> CustomerName, <span class="fu">Count</span>(CustomerName)
 <span class="kw">From</span> Orders
-<span class="kw">Group</span> <span class="kw">by</span> CustomerName </code></pre>
+<span class="kw">Group</span> <span class="kw">by</span> CustomerName</code></pre>
 <pre class="sourceCode scala"><code class="sourceCode scala"><span class="co">//Scalding:</span>
 <span class="kw">import</span> com.<span class="fu">twitter</span>.<span class="fu">algebird</span>.<span class="fu">Aggregator</span>.<span class="fu">size</span>
 
@@ -279,7 +281,7 @@ Output:
 <h4 id="sum">Sum</h4>
 <p>The SQL SUM function is used to return the sum of an expression in a SELECT statement</p>
 <pre class="sourceCode sql"><code class="sourceCode sql">SQL:
-<span class="kw">SELECT</span> <span class="fu">SUM</span>(OrderQuantity) 
+<span class="kw">SELECT</span> <span class="fu">SUM</span>(OrderQuantity)
 <span class="kw">FROM</span> Orders
 <span class="kw">GROUP</span> <span class="kw">BY</span> CustomerName</code></pre>
 <pre class="sourceCode scala"><code class="sourceCode scala"><span class="co">//Scalding:</span>
@@ -297,7 +299,7 @@ Output:
 <h4 id="max">Max</h4>
 <p>The SQL MAX function retrieves the maximum numeric value from a column.</p>
 <pre class="sourceCode sql"><code class="sourceCode sql">SQL:
-<span class="kw">SELECT</span> CustomerName, <span class="fu">MAX</span>(OrderQuantity) 
+<span class="kw">SELECT</span> CustomerName, <span class="fu">MAX</span>(OrderQuantity)
 <span class="kw">FROM</span> <span class="kw">Order</span>
 <span class="kw">GROUP</span> <span class="kw">By</span> CustomerName</code></pre>
 <pre class="sourceCode scala"><code class="sourceCode scala"><span class="co">//Scalding:</span>
@@ -317,7 +319,7 @@ Output:
 <h4 id="min">Min</h4>
 <p>The SQL MIN function selects the smallest number from a column.</p>
 <pre class="sourceCode sql"><code class="sourceCode sql">SQL:
-<span class="kw">SELECT</span> CustomerName, <span class="fu">MIN</span>(OrderQuantity) 
+<span class="kw">SELECT</span> CustomerName, <span class="fu">MIN</span>(OrderQuantity)
 <span class="kw">FROM</span> <span class="kw">Order</span>
 <span class="kw">GROUP</span> <span class="kw">By</span> CustomerName</code></pre>
 <pre class="sourceCode scala"><code class="sourceCode scala"><span class="co">//Scalding:</span>
@@ -333,7 +335,7 @@ Output:
 <h4 id="avg">AVG</h4>
 <p>The SQL AVG function calculates average value of a numeric column.</p>
 <pre class="sourceCode sql"><code class="sourceCode sql">SQL:
-<span class="kw">SELECT</span> CustomerName, <span class="fu">AVG</span>(OrderQuantity) 
+<span class="kw">SELECT</span> CustomerName, <span class="fu">AVG</span>(OrderQuantity)
 <span class="kw">FROM</span> <span class="kw">Order</span>
 <span class="kw">GROUP</span> <span class="kw">BY</span> CustomerName</code></pre>
 <pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">import</span> com.<span class="fu">twitter</span>.<span class="fu">algebird</span>.<span class="fu">_</span>
@@ -352,7 +354,7 @@ Output:
 <h4 id="distinct">Distinct</h4>
 <p>The SQL DISTINCT function selects distinct values from a column. In scalding we use a probabilistic data structure called <a href="https://github.com/twitter/algebird/blob/develop/algebird-core/src/main/scala/com/twitter/algebird/HyperLogLog.scala">HyperLogLog</a> to calculate distinct values.</p>
 <pre class="sourceCode sql"><code class="sourceCode sql">SQL:
-<span class="kw">SELECT</span> <span class="kw">DISTINCT</span> CustomerName 
+<span class="kw">SELECT</span> <span class="kw">DISTINCT</span> CustomerName
 <span class="kw">FROM</span> <span class="kw">Order</span></code></pre>
 <pre class="sourceCode scala"><code class="sourceCode scala"><span class="co">//Scalding:</span>
 <span class="kw">import</span> com.<span class="fu">twitter</span>.<span class="fu">algebird</span>.<span class="fu">HyperLogLogAggregator</span>
@@ -363,7 +365,7 @@ Output:
       .<span class="fu">sizeAggregator</span>(bits = <span class="dv">12</span>)
        <span class="co">//convert customer names to UTF-8 encoded bytes as HyperLogLog expects a byte array.</span>
       .<span class="fu">composePrepare</span>[Order](_.<span class="fu">customerName</span>.<span class="fu">getBytes</span>(<span class="st">"UTF-8"</span>))
-    
+
 TypedPipe.<span class="fu">from</span>(orders)
       .<span class="fu">aggregate</span>(unique)
 
@@ -408,7 +410,7 @@ Output:
  <span class="kw">val</span> sumAggregator = sumAfter[Order, Long](_.<span class="fu">orderQuantity</span>)
  <span class="kw">val</span> sizeAggregator = size
  <span class="co">/*</span>
-<span class="co">   Use more efficient `AveragedValue.aggregator` for AVG calculation. This example </span>
+<span class="co">   Use more efficient `AveragedValue.aggregator` for AVG calculation. This example</span>
 <span class="co">   is only to show how to combine two aggregators.</span>
 <span class="co">  */</span>
  <span class="kw">val</span> avg = sumAggregator.<span class="fu">join</span>(sizeAggregator)
@@ -436,7 +438,7 @@ Output:
    <span class="kw">val</span> multiAggregator = GeneratedTupleAggregator
       .<span class="fu">from4</span>(maxOp, minOp, sum, moments)
       .<span class="fu">andThenPresent</span> {
-        <span class="kw">case</span> (mmax, mmin, ssum, moment) => 
+        <span class="kw">case</span> (mmax, mmin, ssum, moment) =>
               (mmax.<span class="fu">orderPrice</span>, mmin.<span class="fu">orderPrice</span>, ssum, moment.<span class="fu">count</span>, moment.<span class="fu">mean</span>, moment.<span class="fu">stddev</span>)
       }
 

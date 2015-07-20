@@ -1,10 +1,11 @@
-#Aggregators
+% Aggregation using Algebird Aggregators
+
 For this tutorial, you need to be using Algebird 0.7.2, 0.8.2 or 0.9 or later. You may need to update your build file (prefer 0.7.2 if you are on scalding 0.11 or scalding 0.12). Scalding 0.13+ comes with algebird 0.9 already.
 
 Aggregators enable creation of reusable and composable aggregation functions. There are three main functions on Aggregator trait.
 
 ```scala
-trait Aggregator[-A, B, +C]  { 
+trait Aggregator[-A, B, +C]  {
   /**
    * Transform the input before the reduction.
    */
@@ -12,7 +13,7 @@ trait Aggregator[-A, B, +C]  {
    /**
    * Combine two values to produce a new value.
    */
-  def reduce(l: B, r: B): B 
+  def reduce(l: B, r: B): B
   /**
    * Transform the output of the reduction.
    */
@@ -28,14 +29,14 @@ In this section we will use the data below to show SQL aggregate functions and h
 |:-------:|:----------:|:----------:|:-------------:|:------------:|
 |1	  | 12/22/2005 |    160	    |       2	    |   Smith      |
 |2	  | 08/10/2005 |    190	    |       2	    |   Johnson    |
-|3	  | 07/13/2005 |    500	    |       5	    |   Baldwin    | 
+|3	  | 07/13/2005 |    500	    |       5	    |   Baldwin    |
 |4	  | 07/15/2005 |    420	    |       2	    |   Smith      |
 |5	  | 12/22/2005 |    1000    |	    4	    |   Wood       |
 |6	  | 10/2/2005  |    820	    |       4	    |   Smith      |
 |7	  | 11/03/2005 |    2000    |	    2	    |   Baldwin    |
 
 ```scala
- case class Order(orderId: Int, orderDate: String, orderPrice: Long, orderQuantity: Long, 
+ case class Order(orderId: Int, orderDate: String, orderPrice: Long, orderQuantity: Long,
                   customerName: String)
 
  val orders = List(
@@ -89,7 +90,7 @@ You can also use aggregate functions with `Group By`.
 SQL:
 Select CustomerName, Count(CustomerName)
 From Orders
-Group by CustomerName 
+Group by CustomerName
 ```
 ```scala
 //Scalding:
@@ -111,7 +112,7 @@ The SQL SUM function is used to return the sum of an expression in a SELECT stat
 
 ```sql
 SQL:
-SELECT SUM(OrderQuantity) 
+SELECT SUM(OrderQuantity)
 FROM Orders
 GROUP BY CustomerName
 ```
@@ -135,7 +136,7 @@ The SQL MAX function retrieves the maximum numeric value from a column.
 
 ```sql
 SQL:
-SELECT CustomerName, MAX(OrderQuantity) 
+SELECT CustomerName, MAX(OrderQuantity)
 FROM Order
 GROUP By CustomerName
 ```
@@ -161,7 +162,7 @@ The SQL MIN function selects the smallest number from a column.
 
 ```sql
 SQL:
-SELECT CustomerName, MIN(OrderQuantity) 
+SELECT CustomerName, MIN(OrderQuantity)
 FROM Order
 GROUP By CustomerName
 ```
@@ -184,7 +185,7 @@ The SQL AVG function calculates average value of a numeric column.
 
 ```sql
 SQL:
-SELECT CustomerName, AVG(OrderQuantity) 
+SELECT CustomerName, AVG(OrderQuantity)
 FROM Order
 GROUP BY CustomerName
 ```
@@ -206,11 +207,11 @@ Output:
 ```
 
 ### Distinct
-The SQL DISTINCT function selects distinct values  from a column. In scalding we use a probabilistic data structure called [HyperLogLog](https://github.com/twitter/algebird/blob/develop/algebird-core/src/main/scala/com/twitter/algebird/HyperLogLog.scala) to calculate distinct values.   
+The SQL DISTINCT function selects distinct values  from a column. In scalding we use a probabilistic data structure called [HyperLogLog](https://github.com/twitter/algebird/blob/develop/algebird-core/src/main/scala/com/twitter/algebird/HyperLogLog.scala) to calculate distinct values.
 
 ```sql
 SQL:
-SELECT DISTINCT CustomerName 
+SELECT DISTINCT CustomerName
 FROM Order
 ```
 ```scala
@@ -223,7 +224,7 @@ val unique = HyperLogLogAggregator
       .sizeAggregator(bits = 12)
        //convert customer names to UTF-8 encoded bytes as HyperLogLog expects a byte array.
       .composePrepare[Order](_.customerName.getBytes("UTF-8"))
-    
+
 TypedPipe.from(orders)
       .aggregate(unique)
 
@@ -231,7 +232,7 @@ Output:
 4.0
 ```
 
-### Top K 
+### Top K
 
 ```scala
  import com.twitter.algebird.Aggregator.sortedReverseTake
@@ -251,7 +252,7 @@ Output:
 ```
 
 ### Composing Aggregators
-Aggregators can be composed to perform multiple aggregation in one pass. 
+Aggregators can be composed to perform multiple aggregation in one pass.
 
 ```scala
   import com.twitter.algebird.Aggregator._
@@ -279,7 +280,7 @@ composition can also be used to combine two or more aggregators to derive a new 
  val sumAggregator = sumAfter[Order, Long](_.orderQuantity)
  val sizeAggregator = size
  /*
-   Use more efficient `AveragedValue.aggregator` for AVG calculation. This example 
+   Use more efficient `AveragedValue.aggregator` for AVG calculation. This example
    is only to show how to combine two aggregators.
   */
  val avg = sumAggregator.join(sizeAggregator)
@@ -311,7 +312,7 @@ you can join up to 22 `aggregators` by using `GeneratedTupleAggregator`. Example
    val multiAggregator = GeneratedTupleAggregator
       .from4(maxOp, minOp, sum, moments)
       .andThenPresent {
-        case (mmax, mmin, ssum, moment) => 
+        case (mmax, mmin, ssum, moment) =>
               (mmax.orderPrice, mmin.orderPrice, ssum, moment.count, moment.mean, moment.stddev)
       }
 

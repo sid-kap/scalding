@@ -119,7 +119,9 @@
     </ul>
 </div>
 
-<div class="col-xs-9 text-body">
+<div class="col-xs-0 col-md-1"></div>
+
+<div class="col-xs-9 col-md-8 text-body">
 
 <p>The field based API toList should not be used if the size of the list in a groupBy is very large/not known in advance. toList doesn't decrease the data size significantly, and it stands a good chance of creating OOM errors if the lists get too long.A good alternative to toList is to use pack/unpack and reduce. Use pack to convert the tuples into an object, then do a groupBy with a reduce function inside it and have your logic to process the grouped items, combine them etc.</p>
 <p>Example 1:</p>

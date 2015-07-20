@@ -138,7 +138,9 @@
     </ul>
 </div>
 
-<div class="col-xs-9 text-body">
+<div class="col-xs-0 col-md-1"></div>
+
+<div class="col-xs-9 col-md-8 text-body">
 
 <div id="header">
 <h1 class="title">Type-safe API Reference</h1>
@@ -163,7 +165,7 @@
 <span class="kw">import</span> com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">ReplImplicits</span>.<span class="fu">_</span>
 <span class="kw">import</span> com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">ReplImplicitContext</span>.<span class="fu">_</span></code></pre>
 <pre class="sourceCode scala"><code class="sourceCode scala">scala> <span class="kw">val</span> lines: TypedPipe[String] = TypedPipe.<span class="fu">from</span>(<span class="fu">TextLine</span>(<span class="st">"hello.txt"</span>))
-lines: com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">TypedPipe</span>[String] = com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipeFactory</span>@34cc6f63</code></pre>
+lines: com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">TypedPipe</span>[String] = com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipeFactory</span>@2218a85a</code></pre>
 <pre class="sourceCode scala"><code class="sourceCode scala">scala> <span class="co">// do word count</span>
      | (lines.<span class="fu">flatMap</span>(_.<span class="fu">split</span>(<span class="st">"</span><span class="ch">\\</span><span class="st">s+"</span>))
      |   .<span class="fu">group</span>
@@ -175,10 +177,10 @@ lines: com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<spa
 <p>The above example generated an error. The problem appears to be that you are running the group function on a TypedPipe[String] when it expects a TypedPipe[(K,V)]. Essentially you need a pipe of tuples in order to group.</p>
 <pre class="sourceCode scala"><code class="sourceCode scala">scala> <span class="co">// reverse all lines in the file</span>
      | <span class="kw">val</span> reversedLines: TypedPipe[String] = lines.<span class="fu">map</span>(_.<span class="fu">reverse</span>)
-reversedLines: com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">TypedPipe</span>[String] = com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipeFactory</span>@3b878ade
+reversedLines: com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">TypedPipe</span>[String] = com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipeFactory</span>@2cb6b492
 
 scala> reversedLines.<span class="fu">write</span>(TypedTsv[String](<span class="st">"output.tsv"</span>))
-res3: com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipe</span>[String] = com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipeFactory</span>@2b36c5ae</code></pre>
+res3: com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipe</span>[String] = com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipeFactory</span>@5bad7b72</code></pre>
 <p>In the above example we show the preferred way to get a <code>TypedPipe</code> — using <code>TypedPipe.from()</code>, and then demonstrate running a map operation and writing out to a typed sink (<code>TypedTsv</code>).</p>
 <h3 id="map-like-functions">Map-like functions</h3>
 <h4 id="map">map</h4>

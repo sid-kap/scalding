@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
   <meta http-equiv="Content-Style-Type" content="text/css"></meta>
   <meta name="generator" content="pandoc"></meta>
-  <title></title>
+  <title>Building Bigger Platforms with Scalding</title>
   <style type="text/css">code{white-space: pre;}</style>
   <link rel="stylesheet" href="http://localhost:8000/_src/css/bootstrap.min.css" type="text/css"></link>
   <link rel="stylesheet" href="http://localhost:8000/_src/css/custom.css" type="text/css"></link>
@@ -138,8 +138,13 @@
     </ul>
 </div>
 
-<div class="col-xs-9 text-body">
+<div class="col-xs-0 col-md-1"></div>
 
+<div class="col-xs-9 col-md-8 text-body">
+
+<div id="header">
+<h1 class="title">Building Bigger Platforms with Scalding</h1>
+</div>
 <div id="TOC">
 <ul>
 <li><a href="#using-the-fields-api-outside-of-a-job-constructor">Using the Fields-API outside of a Job constructor</a></li>
@@ -156,7 +161,7 @@
 <p>Mention specialized Job examples (CascadeJob for instance).</p>
 <h3 id="using-scalding-outside-of-a-com.twitter.scalding.job-or-tool">Using scalding outside of a com.twitter.scalding.Job (or Tool)</h3>
 <p>Just do what you would with cascading:</p>
-<pre class="sourceCode scala"><code class="sourceCode scala">        <span class="kw">implicit</span> <span class="kw">val</span> mode = <span class="fu">Hdfs</span>(<span class="kw">new</span> <span class="fu">JobConf</span>()) 
+<pre class="sourceCode scala"><code class="sourceCode scala">        <span class="kw">implicit</span> <span class="kw">val</span> mode = <span class="fu">Hdfs</span>(<span class="kw">new</span> <span class="fu">JobConf</span>())
         <span class="kw">implicit</span> <span class="kw">val</span> flowDef = <span class="kw">new</span> FlowDef
         flowDef.<span class="fu">setName</span>(jobName)
         <span class="kw">val</span> result = <span class="fu">myFunctionThatTakesFlowDefAndMode</span>(flowDef, mode)

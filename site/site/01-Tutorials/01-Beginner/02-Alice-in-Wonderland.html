@@ -138,7 +138,9 @@
     </ul>
 </div>
 
-<div class="col-xs-9 text-body">
+<div class="col-xs-0 col-md-1"></div>
+
+<div class="col-xs-9 col-md-8 text-body">
 
 <div id="header">
 <h1 class="title">Alice in Wonderland Tutorial</h1>
@@ -158,24 +160,24 @@ aliceLineNum: List[(String, Int)] = List((Project Gutenberg's Alice's Adventures
 alicePipe: com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipe</span>[(String, Int)] = <span class="fu">IterablePipe</span>(List((Project Gutenberg's Alice's Adventures in Wonderland, by Lewis Carroll,<span class="dv">0</span>), (,<span class="dv">1</span>), (This eBook is <span class="kw">for</span> the use of anyone anywhere at no cost and <span class="kw">with</span>,<span class="dv">2</span>), (almost no restrictions whatsoever.  You may copy it, give it away or,<span class="dv">3</span>), (re-use it under the terms of the Project Gutenberg License included,<span class="dv">4</span>), (<span class="kw">with</span> <span class="kw">this</span> eBook or online at www.<span class="fu">gutenberg</span>.<span class="fu">org</span>,<span class="dv">5</span>), (,<span class="dv">6</span>), (,<span class="dv">7</span>), (Title: Alice's Adventures in Wonderland,<span class="dv">8</span>), (,<span class="dv">9</span>), (Author: Lewis Carroll,<span class="dv">10</span>), (,<span class="dv">11</span>), (Posting Date: June <span class="dv">25</span>, <span class="dv">2008</span> [EBook #<span class="dv">11</span>],<span class="dv">12</span>), (Release Date: March, <span class="dv">1994</span>,<span class="dv">13</span>), ([Last updated: December <span class="dv">20</span>, <span class="dv">2011</span>],<span class="dv">14</span>), (,<span class="dv">15</span>), (Language: English,<span class="dv">16</span>), (,<span class="dv">17</span>), (Character set encoding: ASCII,<span class="dv">18</span>), (,<span class="dv">19</span>), (*** START OF THIS PROJECT GUTENBERG EBOOK ALICE'S ADVENTURES IN W...
 
 scala> <span class="kw">val</span> aliceWordList = alicePipe.<span class="fu">map</span> { line => line.<span class="fu">_1</span>.<span class="fu">split</span>(<span class="st">"</span><span class="ch">\\</span><span class="st">s+"</span>) }
-aliceWordList: com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipe</span>[Array[String]] = com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipeFactory</span>@18a58466</code></pre>
+aliceWordList: com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipe</span>[Array[String]] = com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipeFactory</span>@7815bf32</code></pre>
 <p>Three things: map, function, tuples but that's ugly, so we can use tuple matching the be clearer:</p>
 <pre class="sourceCode scala"><code class="sourceCode scala">scala> <span class="kw">val</span> aliceWordList = alicePipe.<span class="fu">map</span> { <span class="kw">case</span> (text, lineNum) =>
      |   text.<span class="fu">split</span>(<span class="st">"</span><span class="ch">\\</span><span class="st">s+"</span>).<span class="fu">toList</span>
      | }
-aliceWordList: com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipe</span>[List[String]] = com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipeFactory</span>@3f378a65</code></pre>
+aliceWordList: com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipe</span>[List[String]] = com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipeFactory</span>@7ccf786b</code></pre>
 <p>But we want words, not lists of words. We need to flatten!</p>
 <pre class="sourceCode scala"><code class="sourceCode scala">scala> <span class="kw">val</span> aliceWords = aliceWordList.<span class="fu">flatten</span>
-aliceWords: com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipe</span>[String] = com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipeFactory</span>@62fa5a78</code></pre>
+aliceWords: com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipe</span>[String] = com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipeFactory</span>@61a4535e</code></pre>
 <p>Scala has a common function for this map + flatten == flatMap</p>
 <pre class="sourceCode scala"><code class="sourceCode scala">scala> <span class="kw">val</span> aliceWords = alicePipe.<span class="fu">flatMap</span> { <span class="kw">case</span> (text, _) => text.<span class="fu">split</span>(<span class="st">"</span><span class="ch">\\</span><span class="st">s+"</span>).<span class="fu">toList</span> }
-aliceWords: com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipe</span>[String] = com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipeFactory</span>@2f0e74e</code></pre>
+aliceWords: com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipe</span>[String] = com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipeFactory</span>@42ca1a07</code></pre>
 <p>Now lets add a count for each word:</p>
 <pre class="sourceCode scala"><code class="sourceCode scala">scala> <span class="kw">val</span> aliceWithCount = aliceWords.<span class="fu">map</span> { word => (word, 1L) }
-aliceWithCount: com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipe</span>[(String, Long)] = com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipeFactory</span>@4e8d7363</code></pre>
+aliceWithCount: com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipe</span>[(String, Long)] = com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipeFactory</span>@<span class="dv">62822511</span></code></pre>
 <p>let's sum them for each word:</p>
 <pre class="sourceCode scala"><code class="sourceCode scala">scala> <span class="kw">val</span> wordCount = aliceWithCount.<span class="fu">group</span>.<span class="fu">sum</span>
-wordCount: com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">UnsortedGrouped</span>[String,Long] = <span class="fu">IteratorMappedReduce</span>(scala.<span class="fu">math</span>.<span class="fu">Ordering</span>$String$@2b0b6c98,com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipeFactory</span>@7b06853b,<function2>,None)</code></pre>
+wordCount: com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">UnsortedGrouped</span>[String,Long] = <span class="fu">IteratorMappedReduce</span>(scala.<span class="fu">math</span>.<span class="fu">Ordering</span>$String$@2b0b6c98,com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipeFactory</span>@5c4abf81,<function2>,None)</code></pre>
 <p>(We could have also used <code>.sumByKey</code>, which is equivalent to <code>.group.sum</code>.)</p>
 <p>Let's print them to the screen (REPL only):</p>
 <pre class="sourceCode scala"><code class="sourceCode scala">scala> wordCount.<span class="fu">toIterator</span>.<span class="fu">take</span>(<span class="dv">100</span>)
@@ -223,7 +225,7 @@ res0: Iterator[(String, Long)] = non-empty iterator</code></pre>
      |       .<span class="fu">groupAll</span>
      |       .<span class="fu">sortBy</span> { <span class="kw">case</span> (word, count) => -count }
      |       .<span class="fu">take</span>(<span class="dv">10</span>) }
-top10: com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">SortedGrouped</span>[Unit,(String, Long)] = <span class="fu">ValueSortedReduce</span>(scala.<span class="fu">math</span>.<span class="fu">Ordering</span>$Unit$@238f81d2,com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipeFactory</span>@2294143b,scala.<span class="fu">math</span>.<span class="fu">Ordering</span>$$anon$<span class="dv">9</span>@27bc3f39,<function2>,Some(<span class="dv">1</span>))
+top10: com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">SortedGrouped</span>[Unit,(String, Long)] = <span class="fu">ValueSortedReduce</span>(scala.<span class="fu">math</span>.<span class="fu">Ordering</span>$Unit$@238f81d2,com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipeFactory</span>@5405aa95,scala.<span class="fu">math</span>.<span class="fu">Ordering</span>$$anon$<span class="dv">9</span>@4002474b,<function2>,Some(<span class="dv">1</span>))
 
 scala> top10.<span class="fu">dump</span>
 ((),(the,<span class="dv">1664</span>))
@@ -242,7 +244,7 @@ scala> top10.<span class="fu">dump</span>
      |       .<span class="fu">sortBy</span> { <span class="kw">case</span> (word, count) => -count }
      |       .<span class="fu">take</span>(<span class="dv">20</span>)
      |       .<span class="fu">values</span> } <span class="co">// ignore the ()-all key</span>
-top20: com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipe</span>[(String, Long)] = com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipeFactory</span>@416dd5de
+top20: com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipe</span>[(String, Long)] = com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipeFactory</span>@671f46a2
 
 scala> top20.<span class="fu">dump</span>
 (the,<span class="dv">1664</span>)
@@ -271,13 +273,13 @@ scala> top20.<span class="fu">dump</span>
 <pre class="sourceCode scala"><code class="sourceCode scala">scala> <span class="kw">val</span> wordLine = alicePipe.<span class="fu">flatMap</span> { <span class="kw">case</span> (text, line) =>
      |    text.<span class="fu">split</span>(<span class="st">"</span><span class="ch">\\</span><span class="st">s+"</span>).<span class="fu">toList</span>.<span class="fu">map</span> { word => (word, line) }
      |  }
-wordLine: com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipe</span>[(String, Int)] = com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipeFactory</span>@<span class="dv">68250325</span></code></pre>
+wordLine: com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipe</span>[(String, Int)] = com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipeFactory</span>@7f47e2cd</code></pre>
 <p>Next, we group the pairs on the word, and take the max line number for each group.</p>
 <blockquote>
 <p>See all the functions on grouped things here: <a href="http://twitter.github.io/scalding/#com.twitter.scalding.typed.Grouped" class="uri">http://twitter.github.io/scalding/#com.twitter.scalding.typed.Grouped</a></p>
 </blockquote>
 <pre class="sourceCode scala"><code class="sourceCode scala">scala> <span class="kw">val</span> lastLine = wordLine.<span class="fu">group</span>.<span class="fu">max</span>
-lastLine: com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">UnsortedGrouped</span>[String,Int] = <span class="fu">IteratorMappedReduce</span>(scala.<span class="fu">math</span>.<span class="fu">Ordering</span>$String$@2b0b6c98,com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipeFactory</span>@4e611cb2,<function2>,None)</code></pre>
+lastLine: com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">UnsortedGrouped</span>[String,Int] = <span class="fu">IteratorMappedReduce</span>(scala.<span class="fu">math</span>.<span class="fu">Ordering</span>$String$@2b0b6c98,com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">TypedPipeFactory</span>@5abb2427,<function2>,None)</code></pre>
 <p>Finally, we lookup the words from the initial line:</p>
 <blockquote>
 <p>By the way: <code>lastLine.swap</code> is equivalent to <code>lastLine.map { case (word, lastLine) => (lastLine, word) }</code></p>
@@ -287,7 +289,7 @@ lastLine: com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<
      |           .<span class="fu">group</span>
      |           .<span class="fu">join</span>(alicePipe.<span class="fu">swap</span>.<span class="fu">group</span>)
      | }
-words: com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">CoGrouped</span>[Int,(String, String)] = com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">CoGroupable</span>$$anon$<span class="dv">3</span>@45b02f9
+words: com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">CoGrouped</span>[Int,(String, String)] = com.<span class="fu">twitter</span>.<span class="fu">scalding</span>.<span class="fu">typed</span>.<span class="fu">CoGroupable</span>$$anon$<span class="dv">3</span>@4b20029a
 
 scala> <span class="fu">println</span>(words.<span class="fu">toIterator</span>.<span class="fu">take</span>(<span class="dv">30</span>).<span class="fu">mkString</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">"</span>))
 (<span class="dv">8</span>,(Title:,Title: Alice's Adventures in Wonderland))

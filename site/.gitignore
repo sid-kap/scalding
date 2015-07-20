@@ -1,3 +1,4 @@
 _tmp
-src/target
-src/gen
+_src/target
+_src/gen
+*.swp

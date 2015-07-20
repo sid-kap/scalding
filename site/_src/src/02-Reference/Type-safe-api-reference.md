@@ -525,8 +525,8 @@ Example:
 ```scala
 import TDsl._
 
-case class Bird(name : String, winLb : Float, color : String)
-val birds : TypedPipe[Bird] = getBirdPipe
+case class Bird(name: String, winLb: Float, color: String)
+val birds: TypedPipe[Bird] = getBirdPipe
 birds.toPipe('name, 'winLb, 'color) //Cascading Pipe with the 3 specified fields.
 birds.toTypedPipe[(String, String)]('name, 'color) //Typed Pipe (keeping only some fields)
 ```
@@ -534,23 +534,27 @@ Advanced examples:
 ```scala
 import TDsl._
 
-case class Bird(name : String, winLb : Float, hinFt : Float, color : String)
-val birds : TypedPipe[Bird] = getBirdPipe
+case class Bird(name: String, winLb: Float, hinFt: Float, color: String)
+val birds: TypedPipe[Bird] = getBirdPipe
 birds.toPipe('name, 'color)
 
-val p : TypedPipe[(Double, Double)] = TypedTsv[(Double,Double)](input, ('a, 'b)).toTypedPipe[(Double, Double)]('a, 'b)
+val p: TypedPipe[(Double, Double)] =
+  TypedTsv[(Double,Double)](input, ('a, 'b))
+    .toTypedPipe[(Double, Double)]('a, 'b)
 ```
 
 `TypedPipe[MyClass]` is slightly more involved, but you can get it in several ways. One straightforward way is:
 ```scala
 object Bird {
-  def fromTuple(t : (Double, Double)) : Bird = Bird(t._1, t._2)
+  def fromTuple(t: (Double, Double)): Bird = Bird(t._1, t._2)
 }
 
-case class Bird(weight : Double, height : Double) {
-  def toTuple : (Double, Double) = { (weight, height) }
+case class Bird(weight: Double, height: Double) {
+  def toTuple: (Double, Double) = (weight, height)
 }
 
 import TDsl._
-val birds : TypedPipe[Bird] = TypedTsv[(Double, Double)](path, ('weight, 'height)).map{ Bird.fromTuple(_) }
+val birds: TypedPipe[Bird] =
+  TypedTsv[(Double, Double)](path, ('weight, 'height))
+    .map{ Bird.fromTuple(_) }
 ```

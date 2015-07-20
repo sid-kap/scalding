@@ -138,7 +138,9 @@
     </ul>
 </div>
 
-<div class="col-xs-9 text-body">
+<div class="col-xs-0 col-md-1"></div>
+
+<div class="col-xs-9 col-md-8 text-body">
 
 <p>The distributed cache is simply hadoop's method for allowing each node local access to a specific file. In the example, I am mapping ip addresses to geographical locations (country, city, etc.). The heavy lifting is done my Maxmind's geoip LookupService. LookupService requires random access to a local file, GeoLiteCity.dat, which defines a mapping from ip ranges to a location object.</p>
 <p>The DistributedCacheFile object provides a simple API for dealing with registering files to be copied into the file cache at configuration time, and accessing them later during map/reduce time.</p>

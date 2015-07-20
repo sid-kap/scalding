@@ -1,3 +1,5 @@
+% Building Bigger Platforms with Scalding
+
 As of scalding 0.12, we have an API for this around the Execution type. It is described
 in [[Calling-Scalding-from-inside-your-application]]
 This is the recommended approach because it is type-safe, and allows you to compose multiple Executions together.
@@ -17,7 +19,7 @@ Mention specialized Job examples (CascadeJob for instance).
 
 Just do what you would with cascading:
 ```scala
-        implicit val mode = Hdfs(new JobConf()) 
+        implicit val mode = Hdfs(new JobConf())
         implicit val flowDef = new FlowDef
         flowDef.setName(jobName)
         val result = myFunctionThatTakesFlowDefAndMode(flowDef, mode)

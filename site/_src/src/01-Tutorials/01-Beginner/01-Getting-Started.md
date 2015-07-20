@@ -1,3 +1,5 @@
+% Getting Started
+
 ## Installation
 
 To get started with Scalding, first clone the [Scalding repository](https://github.com/twitter/scalding) on Github:
